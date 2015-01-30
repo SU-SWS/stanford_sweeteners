@@ -1,0 +1,27 @@
+<?php
+/**
+ *
+ */
+
+/**
+ * Implements hook_requirements().
+ */
+function stanford_sweeteners_requirements($phase) {
+  $requirements = array();
+  $t = get_t();
+  if ($phase == 'runtime') {
+    $requirements['slick'] = array(
+      'title' => $t('Slick carousel'),
+    );
+    // Verify that the recurly js library is present.
+    if (($path = libraries_get_path('slick')) && file_exists($path . '/slick/slick.js')) {
+      $requirements['slick']['value'] = $t('The required slick carousel library is installed.');
+      $requirements['slick']['severity'] = REQUIREMENT_OK;
+    }
+    else {
+      $requirements['slick']['value'] = $t('The required slick carousel library is missing. Download the slick library.');
+      $requirements['slick']['severity'] = REQUIREMENT_ERROR;
+    }
+  }
+  return $requirements;
+}

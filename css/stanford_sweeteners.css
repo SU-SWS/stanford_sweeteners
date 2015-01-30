@@ -1,0 +1,9 @@
+.slick-carousel .views-row {
+  clear: none;
+  margin: 0;
+}
+
+.slick-carousel .slick-prev,
+.slick-carousel .slick-next {
+  background: #00F;
+}
