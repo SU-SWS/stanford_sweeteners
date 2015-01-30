@@ -75,6 +75,36 @@ function stanford_sweeteners_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'entityreference_autocomplete',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance: 'bean-stanford_sweetener_carousel-field_sweetener_num_items'
+  $field_instances['bean-stanford_sweetener_carousel-field_sweetener_num_items'] = array(
+    'bundle' => 'stanford_sweetener_carousel',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 3,
+      ),
+    ),
+    'entity_type' => 'bean',
+    'field_name' => 'field_sweetener_num_items',
+    'label' => 'Number of items to show',
+    'required' => FALSE,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
       'weight' => 3,
     ),
   );
@@ -433,6 +463,7 @@ function stanford_sweeteners_field_default_field_instances() {
   t('Enter the value of the subsite.');
   t('Image');
   t('More information');
+  t('Number of items to show');
   t('Subsite Tags');
   t('Sweetener');
   t('The audience that the sweetener should be available to.');
