@@ -70,8 +70,7 @@ function stanford_sweeteners_views_pre_render(&$view) {
       // Generate a random ID to use.
       $id = "srand-" . md5(rand(0, 100000) + time());
       $view->display_handler->set_option('css_class', $class . " " . $id);
-      libraries_load('slick');
-      $settings = stanford_sweeteners_load_slick_settings($id, "responsive");
+      $view->slick_id = $id;
     }
   }
 }
@@ -83,6 +82,7 @@ function stanford_sweeteners_views_pre_render(&$view) {
  * @return [type]       [description]
  */
 function stanford_sweeteners_load_slick_settings($id, $type = "default", $opts = array()) {
+  libraries_load('slick');
   $settings = stanford_sweeteners_get_slick_settings($type, $opts);
   drupal_add_js(array("stanford_sweeteners" => array($id => $settings)), 'setting');
   drupal_add_js(drupal_get_path("module", "stanford_sweeteners") . "/js/stanford_sweeteners.slick.js");
@@ -100,15 +100,11 @@ function stanford_sweeteners_get_slick_settings($type = "default", $opts = array
   // Default
   // -----------------------------------------------------------------
 
-  $settings['default'] = array();
-
-  // Num items
-  // -----------------------------------------------------------------
-
-  $settings['number_of_items'] = array(
+  $settings['default'] = array(
     "infinite" => TRUE,
-    "slidesToShow" => isset($opts['num']) ? $opts['num'] : 1,
-    "slidesToScroll" => isset($opts['num']) ? $opts['num'] : 1,
+    "variableHeight" => TRUE,
+    "slidesToShow" => 1,
+    "slidesToScroll" => 1,
   );
 
   // Redundant. Cuz its funny.
@@ -121,6 +117,7 @@ function stanford_sweeteners_get_slick_settings($type = "default", $opts = array
 
   $settings["responsive"] = array(
     "dots" => FALSE,
+    "variableHeight" => TRUE,
     "infinite" => TRUE,
     "speed" => 300,
     "slidesToShow" => 3,
@@ -145,7 +142,11 @@ function stanford_sweeteners_get_slick_settings($type = "default", $opts = array
     ),
   );
 
+  // Merge in the passed options.
+  if (isset($settings[$type])) {
+    $settings[$type] = array_merge($settings[$type], $opts);
+  }
+
   return isset($settings[$type]) ? $settings[$type] : FALSE;
 }
-
 

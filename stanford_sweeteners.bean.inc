@@ -21,3 +21,4 @@ function stanford_sweeteners_bean_admin_ui_types() {
 
   return $export;
 }
+
