@@ -20,6 +20,14 @@ function stanford_sweeteners_ctools_plugin_api($module = NULL, $api = NULL) {
 }
 
 /**
+ * [stanford_sweeteners_bean_types_api_info description]
+ * @return [type] [description]
+ */
+function stanford_sweeteners_bean_types_api_info() {
+  return array("api" => 5);
+}
+
+/**
  * Implements hook_views_api().
  */
 function stanford_sweeteners_views_api($module = NULL, $api = NULL) {
@@ -53,16 +61,18 @@ function stanford_sweeteners_node_info() {
 function stanford_sweeteners_bean_types() {
   include_once "stanford_sweeteners.bean.inc";
   $plugins = array();
+
   $types = stanford_sweeteners_bean_admin_ui_types();
   $plugin_path = drupal_get_path('module', 'stanford_sweeteners') . '/plugins/bean';
 
-  foreach($types as $k => $bean_type) {
-    $plugins[$k] = array(
-      'label' => $bean_type->name,
+  foreach ($types as $bean_name => $bean_type) {
+    $plugins[$bean_name] = array(
+      'label' => $bean_type->label,
       'description' => t($bean_type->description),
+      'type' => $bean_type->name,
       'handler' => array(
         'class' => 'StanfordSweetenerBean',
-        'parent' => 'bean',
+        'parent' => "bean",
         'path' => $plugin_path,
         'file' => 'stanford_sweeteners.bean.type.inc',
       ),
