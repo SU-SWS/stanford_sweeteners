@@ -165,13 +165,13 @@ function stanford_sweeteners_field_default_field_bases() {
     'type' => 'link_field',
   );
 
-  // Exported field_base: 'field_sweetener_carousel_mode'
-  $field_bases['field_sweetener_carousel_mode'] = array(
+  // Exported field_base: 'field_sweet_select_choice'
+  $field_bases['field_sweet_select_choice'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_sweetener_carousel_mode',
+    'field_name' => 'field_sweet_select_choice',
     'foreign keys' => array(),
     'indexes' => array(
       'value' => array(
@@ -182,13 +182,41 @@ function stanford_sweeteners_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
-        'default' => 'default',
-        'responsive' => 'responsive',
+        'subsite' => 'Sweeteners by subsite',
+        'type' => 'Sweeteners by type',
+        'audience' => 'Sweeteners by audience',
+        'manual' => 'Sweeteners by manual selection',
       ),
       'allowed_values_function' => '',
     ),
     'translatable' => 0,
     'type' => 'list_text',
+  );
+
+  // Exported field_base: 'field_sweet_show_dots'
+  $field_bases['field_sweet_show_dots'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_sweet_show_dots',
+    'foreign keys' => array(),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => '',
+        1 => '',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_boolean',
   );
 
   // Exported field_base: 'field_sweetener_etr'
@@ -253,16 +281,9 @@ function stanford_sweeteners_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
-        1 => 1,
-        2 => 2,
-        3 => 3,
-        4 => 4,
-        5 => 5,
-        6 => 6,
-        7 => 7,
-        8 => 8,
-        9 => 9,
-        10 => 10,
+        1 => '1 Item',
+        3 => '3 Items',
+        5 => '5 Items',
       ),
       'allowed_values_function' => '',
     ),

@@ -10,29 +10,90 @@
 function stanford_sweeteners_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'bean-stanford_sweetener_carousel-field_sweetener_carousel_mode'
-  $field_instances['bean-stanford_sweetener_carousel-field_sweetener_carousel_mode'] = array(
+  // Exported field_instance: 'bean-stanford_sweetener_carousel-field_s_sweet_audience'
+  $field_instances['bean-stanford_sweetener_carousel-field_s_sweet_audience'] = array(
     'bundle' => 'stanford_sweetener_carousel',
-    'default_value' => array(
-      0 => array(
-        'value' => 'default',
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 2,
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 8,
       ),
     ),
     'entity_type' => 'bean',
-    'field_name' => 'field_sweetener_carousel_mode',
-    'label' => 'Carousel Display',
-    'required' => 1,
+    'field_name' => 'field_s_sweet_audience',
+    'label' => 'Audience',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'taxonomy',
+      'settings' => array(
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'taxonomy_autocomplete',
+      'weight' => 10,
+    ),
+  );
+
+  // Exported field_instance: 'bean-stanford_sweetener_carousel-field_s_sweet_category'
+  $field_instances['bean-stanford_sweetener_carousel-field_s_sweet_category'] = array(
+    'bundle' => 'stanford_sweetener_carousel',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 6,
+      ),
+    ),
+    'entity_type' => 'bean',
+    'field_name' => 'field_s_sweet_category',
+    'label' => 'Category',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 8,
+    ),
+  );
+
+  // Exported field_instance: 'bean-stanford_sweetener_carousel-field_stanford_subsite_sub_tags'
+  $field_instances['bean-stanford_sweetener_carousel-field_stanford_subsite_sub_tags'] = array(
+    'bundle' => 'stanford_sweetener_carousel',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 5,
+      ),
+    ),
+    'entity_type' => 'bean',
+    'field_name' => 'field_stanford_subsite_sub_tags',
+    'label' => 'Subsite Tags',
+    'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
@@ -41,7 +102,79 @@ function stanford_sweeteners_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 2,
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance: 'bean-stanford_sweetener_carousel-field_sweet_select_choice'
+  $field_instances['bean-stanford_sweetener_carousel-field_sweet_select_choice'] = array(
+    'bundle' => 'stanford_sweetener_carousel',
+    'default_value' => array(
+      0 => array(
+        'value' => 'type',
+      ),
+    ),
+    'deleted' => 0,
+    'description' => 'Choose an option on how you would like the sweetener carousel to gather items to display',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 4,
+      ),
+    ),
+    'entity_type' => 'bean',
+    'field_name' => 'field_sweet_select_choice',
+    'label' => 'How would you  like to select sweeteners?',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance: 'bean-stanford_sweetener_carousel-field_sweet_show_dots'
+  $field_instances['bean-stanford_sweetener_carousel-field_sweet_show_dots'] = array(
+    'bundle' => 'stanford_sweetener_carousel',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => 'Dots are the little buttons that show up below the carousel.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 7,
+      ),
+    ),
+    'entity_type' => 'bean',
+    'field_name' => 'field_sweet_show_dots',
+    'label' => 'Show Dots?',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 4,
     ),
   );
 
@@ -75,7 +208,7 @@ function stanford_sweeteners_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'entityreference_autocomplete',
-      'weight' => 4,
+      'weight' => 9,
     ),
   );
 
@@ -84,7 +217,7 @@ function stanford_sweeteners_field_default_field_instances() {
     'bundle' => 'stanford_sweetener_carousel',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'The number of items selected in this field are the number of items the user will see per carousel page. For example, if you set this option to 3 and there are 9 total items available, there will be 3 carousel pages of 3 items. ',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -96,12 +229,13 @@ function stanford_sweeteners_field_default_field_instances() {
     ),
     'entity_type' => 'bean',
     'field_name' => 'field_sweetener_num_items',
-    'label' => 'Number of items to show',
-    'required' => FALSE,
+    'label' => 'How many items should be visible at one time?',
+    'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
     'widget' => array(
+      'active' => 1,
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
@@ -138,12 +272,12 @@ function stanford_sweeteners_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'taxonomy',
+      'module' => 'options',
       'settings' => array(
         'autocomplete_path' => 'taxonomy/autocomplete',
         'size' => 60,
       ),
-      'type' => 'taxonomy_autocomplete',
+      'type' => 'options_buttons',
       'weight' => 4,
     ),
   );
@@ -177,12 +311,12 @@ function stanford_sweeteners_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'taxonomy',
+      'module' => 'options',
       'settings' => array(
         'autocomplete_path' => 'taxonomy/autocomplete',
         'size' => 60,
       ),
-      'type' => 'taxonomy_autocomplete',
+      'type' => 'options_buttons',
       'weight' => 3,
     ),
   );
@@ -457,16 +591,20 @@ function stanford_sweeteners_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Audience');
-  t('Carousel Display');
   t('Category');
+  t('Choose an option on how you would like the sweetener carousel to gather items to display');
   t('Description');
+  t('Dots are the little buttons that show up below the carousel.');
   t('Enter the value of the subsite.');
+  t('How many items should be visible at one time?');
+  t('How would you  like to select sweeteners?');
   t('Image');
   t('More information');
-  t('Number of items to show');
+  t('Show Dots?');
   t('Subsite Tags');
   t('Sweetener');
   t('The audience that the sweetener should be available to.');
+  t('The number of items selected in this field are the number of items the user will see per carousel page. For example, if you set this option to 3 and there are 9 total items available, there will be 3 carousel pages of 3 items. ');
   t('To find the sweetener you wish to display start typing the title in the field above.');
 
   return $field_instances;
