@@ -32,7 +32,6 @@ class StanfordSweetenerBean extends BeanPlugin {
     $opts = array();
     $opts['slidesToShow'] = isset($bean->field_sweetener_num_items[LANGUAGE_NONE][0]['value']) ? (int) $bean->field_sweetener_num_items[LANGUAGE_NONE][0]['value'] : 3;
     $opts['slidesToScroll'] = isset($bean->field_sweetener_num_items[LANGUAGE_NONE][0]['value']) ? (int) $bean->field_sweetener_num_items[LANGUAGE_NONE][0]['value'] : 3;
-    $opts['dots'] = isset($bean->field_sweet_show_dots[LANGUAGE_NONE][0]['value']) ? (bool) $bean->field_sweet_show_dots[LANGUAGE_NONE][0]['value'] : TRUE;
     $slick_option = isset($bean->field_sweetener_num_items[LANGUAGE_NONE][0]['value']) ? $bean->field_sweetener_num_items[LANGUAGE_NONE][0]['value'] : 1;
     $slick_theme = $this->get_slick_display_options($slick_option);
 
