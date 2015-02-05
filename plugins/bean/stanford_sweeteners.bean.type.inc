@@ -5,6 +5,27 @@
 
 class StanfordSweetenerBean extends BeanPlugin {
 
+  /**
+   * [$view description]
+   * @var null
+   */
+  protected $view = NULL;
+
+  /**
+   * [set_view description]
+   * @param [type] $view [description]
+   */
+  protected function set_view($view) {
+    $this->view = $view;
+  }
+
+  /**
+   * [get_view description]
+   * @return [type] [description]
+   */
+  protected function get_view() {
+    return $this->view;
+  }
 
   /**
    * Overrides the view method.
@@ -14,6 +35,7 @@ class StanfordSweetenerBean extends BeanPlugin {
     $content = array();
 
     $view = views_get_view('sweeteners');
+    $this->set_view($view);
     $selection_choice = !empty($bean->field_sweet_select_choice[LANGUAGE_NONE][0]['value']) ? $bean->field_sweet_select_choice[LANGUAGE_NONE][0]['value'] : "manual";
     $func = "view_selection_" . $selection_choice;
 
@@ -25,14 +47,7 @@ class StanfordSweetenerBean extends BeanPlugin {
       drupal_set_message("Could not find item selection choice for sweetener carousel", "error");
     }
 
-    $handler = $view->display['carousel_branding_block']->handler;
-
-    // Work with attachments.
-    $displays = $handler->get_option('displays');
-    $displays[$view->current_display] = 1;
-    $handler->set_option('displays', $displays);
-
-    // $handler->attach_to($view->current_display);
+    $this->place_attachments($bean, $content, $view_mode, $langcode);
 
     // Generate the output.
     $carousel = $view->preview();
@@ -50,6 +65,44 @@ class StanfordSweetenerBean extends BeanPlugin {
     // Set the content on the render array and be happy.
     $content['carousel']['#markup'] = $carousel;
     return $content;
+  }
+
+  /**
+   * [place_attachments description]
+   * @param  [type] $bean      [description]
+   * @param  [type] $content   [description]
+   * @param  [type] $view_mode [description]
+   * @param  [type] $langcode  [description]
+   * @return [type]            [description]
+   */
+  protected function place_attachments($bean, $content, $view_mode, $langcode) {
+    // Work with attachments.
+    $view = $this->get_view();
+
+    // Check to see that the field exists.
+    if (!isset($bean->field_sweet_branding[LANGUAGE_NONE][0]['value'])) {
+      return;
+    }
+
+    // Get the value from the field.
+    $placement = $bean->field_sweet_branding[LANGUAGE_NONE][0]['value'];
+
+    // If nothing then just end.
+    if ($placement == "none") {
+      return;
+    }
+
+    // These are the names of the attachment display in the view.
+    $options = array();
+    $options['left'] = "carousel_branding_block";
+    $options['bottom'] = "footer_branding_attachment";
+
+
+    $handler = $view->display[$options[$placement]]->handler;
+    $displays = $handler->get_option('displays');
+    $displays[$view->current_display] = 1;
+    $handler->set_option('displays', $displays);
+
   }
 
   /**
