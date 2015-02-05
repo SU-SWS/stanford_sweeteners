@@ -55,11 +55,15 @@ function stanford_sweeteners_node_info() {
   return $items;
 }
 
-/** Implements hook_bean_types.
+/**
+ * Implements hook_bean_types.
+ *
  * This function exists only for installation purposes and beans are
  * exported and managed through the ui.
  * See: https://drupal.org/node/1897834 for issue details.
- * @return array of bean types
+ *
+ * @return array
+ *   of bean types
  */
 function stanford_sweeteners_bean_types() {
   include_once "stanford_sweeteners.bean.inc";
@@ -84,3 +88,4 @@ function stanford_sweeteners_bean_types() {
 
   return $plugins;
 }
+

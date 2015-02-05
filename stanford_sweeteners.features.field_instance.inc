@@ -106,6 +106,41 @@ function stanford_sweeteners_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'bean-stanford_sweetener_carousel-field_sweet_branding'
+  $field_instances['bean-stanford_sweetener_carousel-field_sweet_branding'] = array(
+    'bundle' => 'stanford_sweetener_carousel',
+    'default_value' => array(
+      0 => array(
+        'value' => 'left',
+      ),
+    ),
+    'deleted' => 0,
+    'description' => 'Carousels can come with extra branding or information. The left branding includes a large logo and supporting text. The bottom placement includes a link to see all sweeteners.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 9,
+      ),
+    ),
+    'entity_type' => 'bean',
+    'field_name' => 'field_sweet_branding',
+    'label' => 'Branding placement',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 4,
+    ),
+  );
+
   // Exported field_instance: 'bean-stanford_sweetener_carousel-field_sweet_select_choice'
   $field_instances['bean-stanford_sweetener_carousel-field_sweet_select_choice'] = array(
     'bundle' => 'stanford_sweetener_carousel',
@@ -551,6 +586,8 @@ function stanford_sweeteners_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Audience');
+  t('Branding placement');
+  t('Carousels can come with extra branding or information. The left branding includes a large logo and supporting text. The bottom placement includes a link to see all sweeteners.');
   t('Category');
   t('Choose an option on how you would like the sweetener carousel to gather items to display');
   t('Description');

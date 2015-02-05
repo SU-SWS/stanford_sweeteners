@@ -34,24 +34,6 @@ function stanford_sweeteners_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'node';
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Content: Image */
-  $handler->display->display_options['fields']['field_s_sweet_image']['id'] = 'field_s_sweet_image';
-  $handler->display->display_options['fields']['field_s_sweet_image']['table'] = 'field_data_field_s_sweet_image';
-  $handler->display->display_options['fields']['field_s_sweet_image']['field'] = 'field_s_sweet_image';
-  $handler->display->display_options['fields']['field_s_sweet_image']['label'] = '';
-  $handler->display->display_options['fields']['field_s_sweet_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_s_sweet_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_s_sweet_image']['settings'] = array(
-    'image_style' => 'caw-sm-landscape',
-    'image_link' => 'content',
-  );
   /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
@@ -293,6 +275,83 @@ function stanford_sweeteners_views_default_views() {
   $handler->display->display_options['arguments']['field_s_sweet_audience_tid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['field_s_sweet_audience_tid']['break_phrase'] = TRUE;
   $handler->display->display_options['block_description'] = 'Sweeteners Carousel By Audience';
+
+  /* Display: Branding Block - Attachment */
+  $handler = $view->new_display('attachment', 'Branding Block - Attachment', 'carousel_branding_block');
+  $handler->display->display_options['display_description'] = 'Branding Block - Attachment';
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '1';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<h3 class="sweeteners-branding-logo">Stanford Sweeteners</h3>
+<p>Learn why it\'s pretty "sweet" to be connected with Stanford!</p>';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing_1']['id'] = 'nothing_1';
+  $handler->display->display_options['fields']['nothing_1']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing_1']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing_1']['label'] = '';
+  $handler->display->display_options['fields']['nothing_1']['alter']['text'] = 'View sweeteners';
+  $handler->display->display_options['fields']['nothing_1']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['nothing_1']['alter']['path'] = 'sweeteners';
+  $handler->display->display_options['fields']['nothing_1']['alter']['absolute'] = TRUE;
+  $handler->display->display_options['fields']['nothing_1']['alter']['alt'] = 'View sweeteners';
+  $handler->display->display_options['fields']['nothing_1']['alter']['link_class'] = 'more-link read-more';
+  $handler->display->display_options['fields']['nothing_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  $handler->display->display_options['displays'] = array(
+    'default' => 0,
+    'page' => 0,
+    'sweetener_carousel' => 0,
+    'sweetener_carousel_category' => 0,
+    'sweetener_carousel_subsite' => 0,
+    'sweetener_carousel_audience' => 0,
+  );
+
+  /* Display: Footer Link - Attachment */
+  $handler = $view->new_display('attachment', 'Footer Link - Attachment', 'footer_branding_attachment');
+  $handler->display->display_options['display_description'] = 'Attachment to see all sweeteners link';
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '1';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<span class="sweetener-branding-image">Sweeteners</span>';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing_1']['id'] = 'nothing_1';
+  $handler->display->display_options['fields']['nothing_1']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing_1']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing_1']['label'] = '';
+  $handler->display->display_options['fields']['nothing_1']['alter']['text'] = 'See all sweeteners';
+  $handler->display->display_options['fields']['nothing_1']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['nothing_1']['alter']['path'] = 'sweeteners';
+  $handler->display->display_options['fields']['nothing_1']['alter']['absolute'] = TRUE;
+  $handler->display->display_options['fields']['nothing_1']['alter']['alt'] = 'see all sweeteners';
+  $handler->display->display_options['fields']['nothing_1']['alter']['link_class'] = 'read-more more-link';
+  $handler->display->display_options['fields']['nothing_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['attachment_position'] = 'after';
   $translatables['sweeteners'] = array(
     t('Master'),
     t('Sweeteners Carousel'),
@@ -322,6 +381,15 @@ function stanford_sweeteners_views_default_views() {
     t('Subsite Selection Block'),
     t('Audience Selection Block'),
     t('Sweeteners Carousel By Audience'),
+    t('Branding Block - Attachment'),
+    t('<h3 class="sweeteners-branding-logo">Stanford Sweeteners</h3>
+<p>Learn why it\'s pretty "sweet" to be connected with Stanford!</p>'),
+    t('View sweeteners'),
+    t('Footer Link - Attachment'),
+    t('Attachment to see all sweeteners link'),
+    t('<span class="sweetener-branding-image">Sweeteners</span>'),
+    t('See all sweeteners'),
+    t('see all sweeteners'),
   );
   $export['sweeteners'] = $view;
 

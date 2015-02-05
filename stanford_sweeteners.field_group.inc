@@ -24,7 +24,7 @@ function stanford_sweeteners_field_group_info() {
     'weight' => '2',
     'children' => array(
       0 => 'field_sweetener_num_items',
-      1 => 'field_sweet_show_dots',
+      1 => 'field_sweet_branding',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(

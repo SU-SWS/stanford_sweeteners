@@ -96,12 +96,17 @@ class StanfordSweetenerBean extends BeanPlugin {
     $options = array();
     $options['left'] = "carousel_branding_block";
     $options['bottom'] = "footer_branding_attachment";
+    $attachment = $options[$placement];
 
-
-    $handler = $view->display[$options[$placement]]->handler;
+    // Set the attachment.
+    $handler = $view->display[$attachment]->handler;
     $displays = $handler->get_option('displays');
     $displays[$view->current_display] = 1;
     $handler->set_option('displays', $displays);
+
+    // Add some css becuase we are nice.
+    $class = $view->display_handler->get_option('css_class');
+    $view->display_handler->set_option('css_class', $class . " branding-" . $placement);
 
   }
 
