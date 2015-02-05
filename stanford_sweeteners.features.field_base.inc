@@ -256,8 +256,11 @@ function stanford_sweeteners_field_default_field_bases() {
     'settings' => array(
       'allowed_values' => array(
         1 => '1 Item',
+        2 => '2 Items',
         3 => '3 Items',
+        4 => '4 Items',
         5 => '5 Items',
+        6 => '6 Items',
       ),
       'allowed_values_function' => '',
     ),

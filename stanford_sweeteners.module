@@ -112,9 +112,57 @@ function stanford_sweeteners_get_slick_settings($type = "default", $opts = array
 
   $settings['redundant'] = $opts;
 
+  // 6 Items
+  // -----------------------------------------------------------------
+  $settings["6 items"] = array(
+    "dots" => TRUE,
+    "variableHeight" => TRUE,
+    "infinite" => TRUE,
+    "speed" => 500,
+    "slidesToShow" => 6,
+    "slidesToScroll" => 6,
+    "dots" => TRUE,
+    "responsive" => array(
+      array(
+        "breakpoint" => 960,
+        "settings" => array(
+          "slidesToShow" => 4,
+          "slidesToScroll" => 4,
+          "infinite" => TRUE,
+          "dots" => TRUE,
+        ),
+      ),
+      array(
+        "breakpoint" => 767,
+        "settings" => array(
+          "slidesToShow" => 3,
+          "slidesToScroll" => 3,
+          "infinite" => TRUE,
+          "dots" => TRUE,
+        ),
+      ),
+      array(
+        "breakpoint" => 640,
+        "settings" => array(
+          "slidesToShow" => 2,
+          "slidesToScroll" => 2,
+          "infinite" => TRUE,
+          "dots" => TRUE,
+        ),
+      ),
+      array(
+        "breakpoint" => 480,
+        "settings" => array(
+          "slidesToShow" => 1,
+          "slidesToScroll" => 1,
+          "dots" => TRUE,
+        ),
+      ),
+    ),
+  );
+
   // 5 Items
   // -----------------------------------------------------------------
-
   $settings["5 items"] = array(
     "dots" => TRUE,
     "variableHeight" => TRUE,
@@ -159,16 +207,14 @@ function stanford_sweeteners_get_slick_settings($type = "default", $opts = array
           "dots" => TRUE,
         ),
       ),
-      // array(
-      //   "breakpoint" => 300,
-      //   "settings" => array(
-      //     "slidesToShow" => 1,
-      //     "slidesToScroll" => 1,
-      //     "dots" => TRUE,
-      //   ),
-      // ),
     ),
   );
+
+  // 4 Items
+  // -----------------------------------------------------------------
+  $settings["4 items"] = $settings["5 items"];
+  $settings["4 items"]["slidesToShow"] = 4;
+  $settings["4 items"]["slidesToScroll"] = 5;
 
   // 3 Items
   // -----------------------------------------------------------------
@@ -181,15 +227,6 @@ function stanford_sweeteners_get_slick_settings($type = "default", $opts = array
     "slidesToScroll" => 3,
     "dots" => TRUE,
     "responsive" => array(
-      // array(
-      //   "breakpoint" => 767,
-      //   "settings" => array(
-      //     "slidesToShow" => 2,
-      //     "slidesToScroll" => 2,
-      //     "infinite" => TRUE,
-      //     "dots" => TRUE,
-      //   ),
-      // ),
       array(
         "breakpoint" => 640,
         "settings" => array(
@@ -212,6 +249,29 @@ function stanford_sweeteners_get_slick_settings($type = "default", $opts = array
         "settings" => array(
           "slidesToShow" => 1,
           "slidesToScroll" => 1,
+          "dots" => TRUE,
+        ),
+      ),
+    ),
+  );
+
+  // 1 Item
+  // -----------------------------------------------------------------
+  $settings["2 items"] = array(
+    "dots" => TRUE,
+    "variableHeight" => TRUE,
+    "infinite" => TRUE,
+    "speed" => 500,
+    "slidesToShow" => 2,
+    "slidesToScroll" => 2,
+    "dots" => TRUE,
+    "responsive" => array(
+      array(
+        "breakpoint" => 300,
+        "settings" => array(
+          "slidesToShow" => 1,
+          "slidesToScroll" => 1,
+          "infinite" => TRUE,
           "dots" => TRUE,
         ),
       ),

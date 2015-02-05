@@ -25,6 +25,15 @@ class StanfordSweetenerBean extends BeanPlugin {
       drupal_set_message("Could not find item selection choice for sweetener carousel", "error");
     }
 
+    $handler = $view->display['carousel_branding_block']->handler;
+
+    // Work with attachments.
+    $displays = $handler->get_option('displays');
+    $displays[$view->current_display] = 1;
+    $handler->set_option('displays', $displays);
+
+    // $handler->attach_to($view->current_display);
+
     // Generate the output.
     $carousel = $view->preview();
 
@@ -51,8 +60,11 @@ class StanfordSweetenerBean extends BeanPlugin {
   protected function get_slick_display_options($int) {
     $values = array();
     $values[1] = "1 item";
+    $values[2] = "2 items";
     $values[3] = "3 items";
+    $values[4] = "4 items";
     $values[5] = "5 items";
+    $values[6] = "6 items";
 
     // If not set return all of them.
     if (empty($int)) {
