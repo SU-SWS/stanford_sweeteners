@@ -125,7 +125,7 @@ function stanford_sweeteners_get_slick_settings($type = "default", $opts = array
     "dots" => TRUE,
     "responsive" => array(
       array(
-        "breakpoint" => 767,
+        "breakpoint" => 960,
         "settings" => array(
           "slidesToShow" => 4,
           "slidesToScroll" => 4,
@@ -134,7 +134,7 @@ function stanford_sweeteners_get_slick_settings($type = "default", $opts = array
         ),
       ),
       array(
-        "breakpoint" => 640,
+        "breakpoint" => 767,
         "settings" => array(
           "slidesToShow" => 3,
           "slidesToScroll" => 3,
@@ -143,21 +143,30 @@ function stanford_sweeteners_get_slick_settings($type = "default", $opts = array
         ),
       ),
       array(
-        "breakpoint" => 480,
+        "breakpoint" => 640,
         "settings" => array(
           "slidesToShow" => 2,
           "slidesToScroll" => 2,
+          "infinite" => TRUE,
           "dots" => TRUE,
         ),
       ),
       array(
-        "breakpoint" => 300,
+        "breakpoint" => 480,
         "settings" => array(
           "slidesToShow" => 1,
           "slidesToScroll" => 1,
           "dots" => TRUE,
         ),
       ),
+      // array(
+      //   "breakpoint" => 300,
+      //   "settings" => array(
+      //     "slidesToShow" => 1,
+      //     "slidesToScroll" => 1,
+      //     "dots" => TRUE,
+      //   ),
+      // ),
     ),
   );
 
@@ -172,15 +181,15 @@ function stanford_sweeteners_get_slick_settings($type = "default", $opts = array
     "slidesToScroll" => 3,
     "dots" => TRUE,
     "responsive" => array(
-      array(
-        "breakpoint" => 767,
-        "settings" => array(
-          "slidesToShow" => 2,
-          "slidesToScroll" => 2,
-          "infinite" => TRUE,
-          "dots" => TRUE,
-        ),
-      ),
+      // array(
+      //   "breakpoint" => 767,
+      //   "settings" => array(
+      //     "slidesToShow" => 2,
+      //     "slidesToScroll" => 2,
+      //     "infinite" => TRUE,
+      //     "dots" => TRUE,
+      //   ),
+      // ),
       array(
         "breakpoint" => 640,
         "settings" => array(
