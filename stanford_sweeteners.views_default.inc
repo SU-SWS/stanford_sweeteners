@@ -40,7 +40,7 @@ function stanford_sweeteners_views_default_views() {
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '[field_s_sweet_image]
-[title]';
+  [title]';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   /* Sort criterion: Global: Random */
   $handler->display->display_options['sorts']['random']['id'] = 'random';
@@ -113,7 +113,7 @@ function stanford_sweeteners_views_default_views() {
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="sweetener-image">[field_s_sweet_image]</div>
-<h3>[title]</h3>';
+  <h3>[title]</h3>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['block_description'] = 'Sweeteners Carousel';
 
@@ -156,7 +156,7 @@ function stanford_sweeteners_views_default_views() {
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="sweetener-image">[field_s_sweet_image]</div>
-<h3>[title]</h3>';
+  <h3>[title]</h3>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Field: Category (field_s_sweet_category) */
@@ -209,7 +209,7 @@ function stanford_sweeteners_views_default_views() {
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="sweetener-image">[field_s_sweet_image]</div>
-<h3>[title]</h3>';
+  <h3>[title]</h3>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Field: Subsite Tags (field_stanford_subsite_sub_tags) */
@@ -262,7 +262,7 @@ function stanford_sweeteners_views_default_views() {
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="sweetener-image">[field_s_sweet_image]</div>
-<h3>[title]</h3>';
+  <h3>[title]</h3>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Field: Audience (field_s_sweet_audience) */
@@ -295,7 +295,7 @@ function stanford_sweeteners_views_default_views() {
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<h3 class="sweeteners-branding-logo">Stanford Sweeteners</h3>
-<p>Learn why it\'s pretty "sweet" to be connected with Stanford!</p>';
+  <p>Learn why it\'s pretty "sweet" to be connected with Stanford!</p>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing_1']['id'] = 'nothing_1';
@@ -318,6 +318,7 @@ function stanford_sweeteners_views_default_views() {
     'sweetener_carousel_subsite' => 0,
     'sweetener_carousel_audience' => 0,
   );
+  $handler->display->display_options['inherit_arguments'] = FALSE;
 
   /* Display: Footer Link - Attachment */
   $handler = $view->new_display('attachment', 'Footer Link - Attachment', 'footer_branding_attachment');
@@ -351,7 +352,16 @@ function stanford_sweeteners_views_default_views() {
   $handler->display->display_options['fields']['nothing_1']['alter']['alt'] = 'see all sweeteners';
   $handler->display->display_options['fields']['nothing_1']['alter']['link_class'] = 'read-more more-link';
   $handler->display->display_options['fields']['nothing_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['displays'] = array(
+    'default' => 0,
+    'page' => 0,
+    'sweetener_carousel' => 0,
+    'sweetener_carousel_category' => 0,
+    'sweetener_carousel_subsite' => 0,
+    'sweetener_carousel_audience' => 0,
+  );
   $handler->display->display_options['attachment_position'] = 'after';
+  $handler->display->display_options['inherit_arguments'] = FALSE;
   $translatables['sweeteners'] = array(
     t('Master'),
     t('Sweeteners Carousel'),
@@ -369,13 +379,13 @@ function stanford_sweeteners_views_default_views() {
     t('next ›'),
     t('last »'),
     t('[field_s_sweet_image]
-[title]'),
+  [title]'),
     t('All'),
     t('Page'),
     t('Manual Selection Block'),
     t('Manual Selection Block With Entity References'),
     t('<div class="sweetener-image">[field_s_sweet_image]</div>
-<h3>[title]</h3>'),
+  <h3>[title]</h3>'),
     t('Category Selection Block'),
     t('Sweeteners Carousel By Type'),
     t('Subsite Selection Block'),
@@ -383,7 +393,7 @@ function stanford_sweeteners_views_default_views() {
     t('Sweeteners Carousel By Audience'),
     t('Branding Block - Attachment'),
     t('<h3 class="sweeteners-branding-logo">Stanford Sweeteners</h3>
-<p>Learn why it\'s pretty "sweet" to be connected with Stanford!</p>'),
+  <p>Learn why it\'s pretty "sweet" to be connected with Stanford!</p>'),
     t('View sweeteners'),
     t('Footer Link - Attachment'),
     t('Attachment to see all sweeteners link'),
@@ -391,6 +401,7 @@ function stanford_sweeteners_views_default_views() {
     t('See all sweeteners'),
     t('see all sweeteners'),
   );
+
   $export['sweeteners'] = $view;
 
   return $export;
