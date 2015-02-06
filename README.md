@@ -13,7 +13,7 @@ Install this module like any other module. [See Drupal Documentation](https://dr
 Configuration
 ---
 
-Description here: [needs description]
+Description here: please add a description
 
 Troubleshooting
 ---
