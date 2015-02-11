@@ -182,14 +182,13 @@ function stanford_sweeteners_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
-        'left' => 'Large left block',
-        'bottom' => 'Small link at bottom',
-        'none' => 'No branding',
+        0 => '',
+        1 => '',
       ),
       'allowed_values_function' => '',
     ),
     'translatable' => 0,
-    'type' => 'list_text',
+    'type' => 'list_boolean',
   );
 
   // Exported field_base: 'field_sweet_select_choice'
@@ -283,9 +282,9 @@ function stanford_sweeteners_field_default_field_bases() {
     'settings' => array(
       'allowed_values' => array(
         1 => '1 Item',
-        2 => '2 Items',
-        3 => '3 Items',
-        4 => '4 Items',
+        // 2 => '2 Items',
+        // 3 => '3 Items',
+        // 4 => '4 Items',
         5 => '5 Items',
         6 => '6 Items',
       ),

@@ -111,11 +111,11 @@ function stanford_sweeteners_field_default_field_instances() {
     'bundle' => 'stanford_sweetener_carousel',
     'default_value' => array(
       0 => array(
-        'value' => 'left',
+        'value' => 0,
       ),
     ),
     'deleted' => 0,
-    'description' => 'Carousels can come with extra branding or information. The left branding includes a large logo and supporting text. The bottom placement includes a link to see all sweeteners.',
+    'description' => 'Checking this box will place a view more sweeteners link below the carousel',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -127,16 +127,18 @@ function stanford_sweeteners_field_default_field_instances() {
     ),
     'entity_type' => 'bean',
     'field_name' => 'field_sweet_branding',
-    'label' => 'Branding placement',
-    'required' => 1,
+    'label' => 'Enable view more link',
+    'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
       'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_buttons',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
       'weight' => 4,
     ),
   );
@@ -591,11 +593,11 @@ function stanford_sweeteners_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Audience');
   t('Available to');
-  t('Branding placement');
-  t('Carousels can come with extra branding or information. The left branding includes a large logo and supporting text. The bottom placement includes a link to see all sweeteners.');
   t('Category');
+  t('Checking this box will place a view more sweeteners link below the carousel');
   t('Choose an option on how you would like the sweetener carousel to gather items to display');
   t('Description');
+  t('Enable view more link');
   t('Enter the value of the subsite.');
   t('How many items should be visible at one time?');
   t('How would you  like to select sweeteners?');

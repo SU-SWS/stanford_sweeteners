@@ -118,9 +118,9 @@ class StanfordSweetenerBean extends BeanPlugin {
   protected function get_slick_display_options($int) {
     $values = array();
     $values[1] = "1 item";
-    $values[2] = "2 items";
-    $values[3] = "3 items";
-    $values[4] = "4 items";
+    // $values[2] = "2 items";
+    // $values[3] = "3 items";
+    // $values[4] = "4 items";
     $values[5] = "5 items";
     $values[6] = "6 items";
 
