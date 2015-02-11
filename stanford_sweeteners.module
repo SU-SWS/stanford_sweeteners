@@ -250,8 +250,9 @@ function stanford_sweeteners_get_slick_settings($type = "default", $opts = array
     "slidesToScroll" => 3,
     "dots" => TRUE,
     "responsive" => array(
+      // 541
       array(
-        "breakpoint" => 640,
+        "breakpoint" => 541,
         "settings" => array(
           "slidesToShow" => 2,
           "slidesToScroll" => 2,
@@ -259,19 +260,13 @@ function stanford_sweeteners_get_slick_settings($type = "default", $opts = array
           "dots" => TRUE,
         ),
       ),
+      // 410
       array(
-        "breakpoint" => 480,
+        "breakpoint" => 410,
         "settings" => array(
           "slidesToShow" => 1,
           "slidesToScroll" => 1,
-          "dots" => TRUE,
-        ),
-      ),
-      array(
-        "breakpoint" => 300,
-        "settings" => array(
-          "slidesToShow" => 1,
-          "slidesToScroll" => 1,
+          "infinite" => TRUE,
           "dots" => TRUE,
         ),
       ),
@@ -290,8 +285,9 @@ function stanford_sweeteners_get_slick_settings($type = "default", $opts = array
     "slidesToScroll" => 2,
     "dots" => TRUE,
     "responsive" => array(
+      // 410
       array(
-        "breakpoint" => 300,
+        "breakpoint" => 410,
         "settings" => array(
           "slidesToShow" => 1,
           "slidesToScroll" => 1,
@@ -335,4 +331,24 @@ function stanford_sweeteners_form_bean_form_alter(&$form, &$form_state, $form_id
     $form['revision']["#access"] = array("edit bean view mode");
     $form['redirect']['#access'] = FALSE;
   }
+}
+
+/**
+ * Implements theme_preprocess_block().
+ *
+ * Extend block's classes with any user defined classes.
+ */
+function stanford_sweeteners_preprocess_block(&$vars) {
+  if ($vars['block']->module == "bean") {
+    $bean = bean_load_delta($vars['block']->delta);
+    if ($bean->type == "stanford_sweetener_carousel") {
+      $num = !empty($bean->field_sweetener_num_items[LANGUAGE_NONE][0]['value']) ? $bean->field_sweetener_num_items[LANGUAGE_NONE][0]['value'] : NULL;
+
+      if (is_numeric($num)) {
+        $vars['classes_array'][] = "slick-items-" . $num;
+      }
+
+    }
+  }
+
 }
