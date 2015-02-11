@@ -124,8 +124,19 @@ function stanford_sweeteners_get_slick_settings($type = "default", $opts = array
     "slidesToScroll" => 6,
     "dots" => TRUE,
     "responsive" => array(
+      // 1199
       array(
-        "breakpoint" => 960,
+        "breakpoint" => 1199,
+        "settings" => array(
+          "slidesToShow" => 5,
+          "slidesToScroll" => 5,
+          "infinite" => TRUE,
+          "dots" => TRUE,
+        ),
+      ),
+      // 979
+      array(
+        "breakpoint" => 979,
         "settings" => array(
           "slidesToShow" => 4,
           "slidesToScroll" => 4,
@@ -133,8 +144,9 @@ function stanford_sweeteners_get_slick_settings($type = "default", $opts = array
           "dots" => TRUE,
         ),
       ),
+      // 759
       array(
-        "breakpoint" => 767,
+        "breakpoint" => 759,
         "settings" => array(
           "slidesToShow" => 3,
           "slidesToScroll" => 3,
@@ -142,8 +154,9 @@ function stanford_sweeteners_get_slick_settings($type = "default", $opts = array
           "dots" => TRUE,
         ),
       ),
+      // 541
       array(
-        "breakpoint" => 640,
+        "breakpoint" => 541,
         "settings" => array(
           "slidesToShow" => 2,
           "slidesToScroll" => 2,
@@ -151,11 +164,13 @@ function stanford_sweeteners_get_slick_settings($type = "default", $opts = array
           "dots" => TRUE,
         ),
       ),
+      // 410
       array(
-        "breakpoint" => 480,
+        "breakpoint" => 410,
         "settings" => array(
           "slidesToShow" => 1,
           "slidesToScroll" => 1,
+          "infinite" => TRUE,
           "dots" => TRUE,
         ),
       ),
@@ -174,8 +189,9 @@ function stanford_sweeteners_get_slick_settings($type = "default", $opts = array
     "slidesToScroll" => 5,
     "dots" => TRUE,
     "responsive" => array(
+      // 979
       array(
-        "breakpoint" => 960,
+        "breakpoint" => 979,
         "settings" => array(
           "slidesToShow" => 4,
           "slidesToScroll" => 4,
@@ -183,8 +199,9 @@ function stanford_sweeteners_get_slick_settings($type = "default", $opts = array
           "dots" => TRUE,
         ),
       ),
+      // 759
       array(
-        "breakpoint" => 767,
+        "breakpoint" => 759,
         "settings" => array(
           "slidesToShow" => 3,
           "slidesToScroll" => 3,
@@ -192,8 +209,9 @@ function stanford_sweeteners_get_slick_settings($type = "default", $opts = array
           "dots" => TRUE,
         ),
       ),
+      // 541
       array(
-        "breakpoint" => 640,
+        "breakpoint" => 541,
         "settings" => array(
           "slidesToShow" => 2,
           "slidesToScroll" => 2,
@@ -201,11 +219,13 @@ function stanford_sweeteners_get_slick_settings($type = "default", $opts = array
           "dots" => TRUE,
         ),
       ),
+      // 410
       array(
-        "breakpoint" => 480,
+        "breakpoint" => 410,
         "settings" => array(
           "slidesToShow" => 1,
           "slidesToScroll" => 1,
+          "infinite" => TRUE,
           "dots" => TRUE,
         ),
       ),

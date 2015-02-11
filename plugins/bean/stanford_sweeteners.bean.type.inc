@@ -47,6 +47,7 @@ class StanfordSweetenerBean extends BeanPlugin {
       drupal_set_message("Could not find item selection choice for sweetener carousel", "error");
     }
 
+    // Branding options.
     $this->place_attachments($bean, $content, $view_mode, $langcode);
 
     // Generate the output.
@@ -87,26 +88,19 @@ class StanfordSweetenerBean extends BeanPlugin {
     // Get the value from the field.
     $placement = $bean->field_sweet_branding[LANGUAGE_NONE][0]['value'];
 
-    // If nothing then just end.
-    if ($placement == "none") {
+    if ((int) $placement !== 1) {
       return;
     }
 
-    // These are the names of the attachment display in the view.
-    $options = array();
-    $options['left'] = "carousel_branding_block";
-    $options['bottom'] = "footer_branding_attachment";
-    $attachment = $options[$placement];
-
     // Set the attachment.
-    $handler = $view->display[$attachment]->handler;
+    $handler = $view->display["footer_branding_attachment"]->handler;
     $displays = $handler->get_option('displays');
     $displays[$view->current_display] = 1;
     $handler->set_option('displays', $displays);
 
     // Add some css becuase we are nice.
     $class = $view->display_handler->get_option('css_class');
-    $view->display_handler->set_option('css_class', $class . " branding-" . $placement);
+    $view->display_handler->set_option('css_class', $class . " branding-footer");
 
   }
 
