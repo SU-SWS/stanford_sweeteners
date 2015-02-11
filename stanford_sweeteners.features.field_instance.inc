@@ -250,9 +250,13 @@ function stanford_sweeteners_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 4,
+        'module' => 'ds',
+        'settings' => array(
+          'taxonomy_term_link' => 0,
+          'taxonomy_term_separator' => ', ',
+        ),
+        'type' => 'ds_taxonomy_separator',
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -263,7 +267,7 @@ function stanford_sweeteners_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_s_sweet_audience',
-    'label' => 'Audience',
+    'label' => 'Available to',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -288,7 +292,7 @@ function stanford_sweeteners_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 3,
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -324,7 +328,7 @@ function stanford_sweeteners_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -586,6 +590,7 @@ function stanford_sweeteners_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Audience');
+  t('Available to');
   t('Branding placement');
   t('Carousels can come with extra branding or information. The left branding includes a large logo and supporting text. The bottom placement includes a link to see all sweeteners.');
   t('Category');
