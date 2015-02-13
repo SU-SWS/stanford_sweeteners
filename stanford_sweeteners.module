@@ -331,6 +331,10 @@ function stanford_sweeteners_form_bean_form_alter(&$form, &$form_state, $form_id
     $form['revision']["#access"] = array("edit bean view mode");
     $form['redirect']['#access'] = FALSE;
   }
+
+
+  $form['field_stanford_subsite_sub_tags'][LANGUAGE_NONE]["#multiple"] = FALSE;
+
 }
 
 /**
