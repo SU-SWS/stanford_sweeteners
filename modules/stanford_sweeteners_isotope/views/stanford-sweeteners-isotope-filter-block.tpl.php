@@ -10,7 +10,7 @@
 
 ?>
 <!-- RENDER AS CHECKBOXES -->
-<?php if (!$options['render_as_checkboxes']) { ?>
+<?php if (!isset($options['render_as_checkboxes']) || !$options['render_as_checkboxes']) { ?>
 
   <div id="isotope-options">
     <ul id="filters" class="option-set clearfix" data-option-key="filter">
