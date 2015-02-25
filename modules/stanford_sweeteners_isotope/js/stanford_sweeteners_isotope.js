@@ -28,7 +28,9 @@ Stanford_sweeteners_isotope.init = function(context, settings) {
 
   // Trigger iso!
   $container.isotope({
-    itemSelector: '.isotope-element'
+    itemSelector: '.isotope-element',
+    sortAscending: true,
+    layoutMode: 'masonry'
   });
 
   var $optionSets = $('#isotope-checkbox-options .option-set', context),
@@ -41,7 +43,15 @@ Stanford_sweeteners_isotope.init = function(context, settings) {
     });
 
     var options = {};
-    options.filter = filters.join(", ");
+    console.log(filters);
+
+    // If there are no filters or all filters are selected show everything.
+    if (filters.length >= 0 && filters.length < $optionBoxes.length) {
+      options.filter = filters.join(", ");
+    }
+    else {
+      options.filter = "*";
+    }
 
     $container.isotope(options);
   });
