@@ -31,7 +31,7 @@ function stanford_sweeteners_isotope_views_default_views() {
   $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'none';
-  $handler->display->display_options['style_plugin'] = 'isotope_filter_block';
+  $handler->display->display_options['style_plugin'] = 'stanford_sweeteners_isotope_filter_block';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Relationship: Taxonomy term: Content using Category */
   $handler->display->display_options['relationships']['reverse_field_s_sweet_category_node']['id'] = 'reverse_field_s_sweet_category_node';
