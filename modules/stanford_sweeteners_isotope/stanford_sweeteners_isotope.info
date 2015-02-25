@@ -1,0 +1,14 @@
+name = Stanford Sweeteners Isotope
+description = A feature module for the isotope view page
+core = 7.x
+package = Stanford
+version = 7.x-1.0-alpha1
+project = stanford_sweeteners_isotope
+dependencies[] = stanford_sweeteners
+dependencies[] = views
+dependencies[] = views_isotope
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[views_view][] = sweeteners_isotope_filter
+features[views_view][] = sweeteners_isotope_page
+features_exclude[dependencies][ctools] = ctools

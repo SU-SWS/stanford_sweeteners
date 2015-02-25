@@ -1,0 +1,16 @@
+#isotope-container a {
+  display: block;
+  height: 250px;
+  width: 100%;
+}
+
+#isotope-container .isotope-element {
+  width: 170px;
+  overflow: visible;
+  height: 250px;
+}
+
+#isotope-container .isotope-element img {
+  width: 170px;
+  height: auto;
+}
