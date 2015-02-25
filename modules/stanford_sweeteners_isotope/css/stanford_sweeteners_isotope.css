@@ -14,3 +14,8 @@
   width: 170px;
   height: auto;
 }
+
+#isotope-checkbox-options label {
+  display: inline-block;
+  margin-right: 10px;
+}

@@ -5,3 +5,21 @@
  */
 
 include_once 'stanford_sweeteners_isotope.features.inc';
+
+
+/**
+ * Trim up some bad junk.
+ * @param  [type] $item [description]
+ * @return [type]       [description]
+ */
+function stanford_sweeteners_isotope_trim($item){
+
+  // This is also do to the isotope elements.
+  $dataoption = trim(strip_tags(strtolower($item)));
+  $dataoption = str_replace(' ', '-', $dataoption);
+  $dataoption = str_replace('/', '-', $dataoption);
+  $dataoption = str_replace('&amp;', '', $dataoption);
+
+  return $dataoption;
+
+}
