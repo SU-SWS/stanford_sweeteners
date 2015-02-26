@@ -70,10 +70,6 @@ function stanford_sweeteners_views_default_views() {
     'stanford_sweetener' => 'stanford_sweetener',
   );
 
-  /* Display: Page */
-  $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['path'] = 'sweeteners';
-
   /* Display: Manual Selection Block */
   $handler = $view->new_display('block', 'Manual Selection Block', 'sweetener_carousel');
   $handler->display->display_options['display_description'] = 'Manual Selection Block With Entity References';
