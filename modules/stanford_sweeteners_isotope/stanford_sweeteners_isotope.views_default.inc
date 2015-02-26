@@ -88,7 +88,7 @@ function stanford_sweeteners_isotope_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Sweeteners Isotope Page';
+  $handler->display->display_options['title'] = 'Stanford Sweeteners';
   $handler->display->display_options['css_class'] = 'sweetener-isotope-page';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
@@ -98,6 +98,14 @@ function stanford_sweeteners_isotope_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['style_plugin'] = 'isotope';
   $handler->display->display_options['row_plugin'] = 'fields';
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['label'] = 'Introduction text';
+  $handler->display->display_options['header']['area']['empty'] = TRUE;
+  $handler->display->display_options['header']['area']['content'] = '<p class="summary">It\'s pretty "sweet" to be connected with Stanford! Stanford Sweeteners present the "sweetest" perks and rewards of being affiliated with Stanford, from discounts and incentives to facilities access and professional development.</p>';
+  $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Header: Global: View area */
   $handler->display->display_options['header']['view']['id'] = 'view';
   $handler->display->display_options['header']['view']['table'] = 'views';
@@ -182,13 +190,15 @@ function stanford_sweeteners_isotope_views_default_views() {
   $handler->display->display_options['path'] = 'sweeteners';
   $translatables['sweeteners_isotope_page'] = array(
     t('Master'),
-    t('Sweeteners Isotope Page'),
+    t('Stanford Sweeteners'),
     t('more'),
     t('Apply'),
     t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
+    t('Introduction text'),
+    t('<p class="summary">It\'s pretty "sweet" to be connected with Stanford! Stanford Sweeteners present the "sweetest" perks and rewards of being affiliated with Stanford, from discounts and incentives to facilities access and professional development.</p>'),
     t('Isotope Filter'),
     t('Sweetener No Title'),
     t('<span class="sweetener-thumb">[field_s_sweet_image]</span> 

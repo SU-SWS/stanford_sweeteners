@@ -14,4 +14,4 @@ features[views_view][] = sweeteners_isotope_filter
 features[views_view][] = sweeteners_isotope_page
 features_exclude[dependencies][ctools] = ctools
 files[] = views/stanford_sweeteners_isotope_plugin_style_isotope.inc
-mtime = 1424906935
+mtime = 1424907183
