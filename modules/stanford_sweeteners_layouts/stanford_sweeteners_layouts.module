@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Stanford Sweeteners Layouts feature.
+ */
+
+include_once 'stanford_sweeteners_layouts.features.inc';

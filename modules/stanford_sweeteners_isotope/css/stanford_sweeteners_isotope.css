@@ -1,3 +1,14 @@
+.no-js #isotope-checkbox-options {
+  display: none;
+  visibility: hidden;
+}
+
+.js .no-js-menu,
+.js #block-views-e45453d1642ffd0c9ec65173ce88d331 {
+  display: none;
+  visibility: hidden;
+}
+
 #isotope-container a {
   display: block;
   height: 250px;

@@ -61,6 +61,33 @@ function stanford_sweeteners_isotope_views_default_views() {
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'isotope_options');
   $handler->display->display_options['block_description'] = 'Sweetener Isotope Filter';
+
+  /* Display: No JS Menu Block */
+  $handler = $view->new_display('block', 'No JS Menu Block', 'no_js_filter_menu');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Sweeteners Filter';
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'sweetener-isotope-filter no-js-menu';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Taxonomy term: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['name']['alter']['path'] = 'sweeteners-nojs/[name]';
+  $handler->display->display_options['fields']['name']['alter']['replace_spaces'] = TRUE;
+  $handler->display->display_options['fields']['name']['alter']['path_case'] = 'lower';
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  $handler->display->display_options['block_description'] = 'Sweetener Isotope Filter';
   $translatables['sweeteners_isotope_filter'] = array(
     t('Master'),
     t('Sweeteners Isotope Filter'),
@@ -73,6 +100,8 @@ function stanford_sweeteners_isotope_views_default_views() {
     t('field_s_sweet_category'),
     t('Block'),
     t('Sweetener Isotope Filter'),
+    t('No JS Menu Block'),
+    t('Sweeteners Filter'),
   );
   $export['sweeteners_isotope_filter'] = $view;
 
@@ -188,6 +217,28 @@ function stanford_sweeteners_isotope_views_default_views() {
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'sweetener_isotope_page');
   $handler->display->display_options['path'] = 'sweeteners';
+
+  /* Display: No-Js */
+  $handler = $view->new_display('page', 'No-Js', 'page_1');
+  $handler->display->display_options['display_description'] = 'For users without Javascript';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Has taxonomy term ID */
+  $handler->display->display_options['arguments']['tid']['id'] = 'tid';
+  $handler->display->display_options['arguments']['tid']['table'] = 'taxonomy_index';
+  $handler->display->display_options['arguments']['tid']['field'] = 'tid';
+  $handler->display->display_options['arguments']['tid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['tid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['tid']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['tid']['validate']['type'] = 'taxonomy_term';
+  $handler->display->display_options['arguments']['tid']['validate_options']['vocabularies'] = array(
+    'sweetener_category' => 'sweetener_category',
+  );
+  $handler->display->display_options['arguments']['tid']['validate_options']['type'] = 'convert';
+  $handler->display->display_options['arguments']['tid']['validate_options']['transform'] = TRUE;
+  $handler->display->display_options['arguments']['tid']['validate']['fail'] = 'ignore';
+  $handler->display->display_options['path'] = 'sweeteners-nojs';
   $translatables['sweeteners_isotope_page'] = array(
     t('Master'),
     t('Stanford Sweeteners'),
@@ -205,6 +256,9 @@ function stanford_sweeteners_isotope_views_default_views() {
 <h3>[title]</h3>
 '),
     t('Page'),
+    t('No-Js'),
+    t('For users without Javascript'),
+    t('All'),
   );
   $export['sweeteners_isotope_page'] = $view;
 

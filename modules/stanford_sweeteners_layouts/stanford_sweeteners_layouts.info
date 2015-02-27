@@ -1,0 +1,14 @@
+name = Stanford Sweeteners Layouts
+description = A collection of context layouts for Stanford Sweeteners
+core = 7.x
+package = Stanford
+version = 7.x-1.0-alpha1
+project = stanford_sweeteners_layouts
+dependencies[] = bean
+dependencies[] = context
+dependencies[] = stanford_sweeteners
+dependencies[] = stanford_sweeteners_isotope
+dependencies[] = views
+features[context][] = sweeteners_landing
+features[ctools][] = context:context:3
+features[features_api][] = api:2
