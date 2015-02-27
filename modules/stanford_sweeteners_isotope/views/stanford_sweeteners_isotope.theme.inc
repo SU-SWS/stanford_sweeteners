@@ -12,5 +12,6 @@ function template_preprocess_stanford_sweeteners_isotope_filter_block(&$vars) {
   $fields = &$view->field;
   $rows = &$vars['rows'];
   $vars['attributes'] = array();
+  drupal_add_js(drupal_get_path('module', 'stanford_sweeteners_isotope') . '/js/jquery.history.js');
   drupal_add_js(drupal_get_path('module', 'stanford_sweeteners_isotope') . '/js/stanford_sweeteners_isotope.js');
 }
