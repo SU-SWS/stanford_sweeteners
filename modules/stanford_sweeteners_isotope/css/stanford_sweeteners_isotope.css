@@ -9,22 +9,26 @@
   visibility: hidden;
 }
 
+#isotope-container {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
 #isotope-container a {
   display: block;
-  height: 250px;
+  height: 240px;
   width: 100%;
 }
 
 #isotope-container .isotope-element {
-  width: 195px;
+  width: 202px;
   overflow: visible;
-  height: 250px;
-  margin-left: 0px;
-  margin-right: 20px;
+  height: 240px;
+  margin: 10px;
 }
 
 #isotope-container .isotope-element img {
-  width: 195px;
+  width: 202px;
   height: auto;
 }
 
