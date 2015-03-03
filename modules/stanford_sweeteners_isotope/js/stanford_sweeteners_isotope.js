@@ -155,7 +155,7 @@ Stanford_sweeteners_isotope.historystate_init = function(context, settings) {
     var hashparams = state.hash.replace(Drupal.settings.basePath + Drupal.settings.stanford_sweeteners_isotope.urlpath, "");
     var selector = hashparams.replace(/\//g, ",.");
     selector = selector.replace(",", "");
-    $(".isotope-options .filters input").not(selector).attr("checked", false);
+    $(".isotope-options .filters input").filter(selector).attr("checked", true);
     Stanford_sweeteners_isotope.event.update($('.isotope-container').parent().parent());
   }
 

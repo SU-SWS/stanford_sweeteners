@@ -38,6 +38,7 @@ function stanford_sweeteners_isotope_views_default_views() {
   $handler->display->display_options['relationships']['reverse_field_s_sweet_category_node']['id'] = 'reverse_field_s_sweet_category_node';
   $handler->display->display_options['relationships']['reverse_field_s_sweet_category_node']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['relationships']['reverse_field_s_sweet_category_node']['field'] = 'reverse_field_s_sweet_category_node';
+  $handler->display->display_options['relationships']['reverse_field_s_sweet_category_node']['required'] = TRUE;
   /* Field: Taxonomy term: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
