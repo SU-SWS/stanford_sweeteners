@@ -87,11 +87,12 @@ Stanford_sweeteners_isotope.event.update = function(view) {
 
   // If there are no filters or all filters are selected show everything.
   if (filters.length > 0 && filters.length < count) {
-    options.filter = filters.join(", ");
+    options.filter = filters.join("");
   }
   else {
     options.filter = "*";
   }
+  console.log(options);
 
   container.isotope(options);
 };
@@ -111,7 +112,7 @@ Stanford_sweeteners_isotope.event.clicked = function(view, element) {
   options.filter = element.data('option-value');
 
   if (filters.length > 0 && filters.length < count) {
-    options.filter += " " + filters.join(", ");
+    options.filter += " " + filters.join("");
   }
 
   container.isotope(options);

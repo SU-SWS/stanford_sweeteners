@@ -36,7 +36,7 @@ function template_preprocess_stanford_sweeteners_views_isotope(&$vars) {
       // Not sure why this yet.
       $field_name = "field_" . $field_name;
       foreach ($results[$index]->{$field_name} as $result_field) {
-        $classes[] = strtolower(substr(drupal_clean_css_identifier(strip_tags($result_field['rendered']['#markup'])), 0, 64));
+        $classes[] = substr(drupal_clean_css_identifier(stanford_sweeteners_isotope_trim($result_field['rendered']['#markup'])), 0, 64);
       }
     }
     $vars['classlist'][$index] = implode($classes, " ");
