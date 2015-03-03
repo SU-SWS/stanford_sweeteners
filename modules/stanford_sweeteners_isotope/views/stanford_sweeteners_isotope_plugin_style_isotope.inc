@@ -7,7 +7,7 @@
 /**
  * Style plugin.
  */
-class stanford_sweeteners_isotope_plugin_style_isotope extends views_isotope_plugin_style_isotope {
+class stanford_sweeteners_isotope_plugin_style_isotope extends views_plugin_style_list {
 
   /**
    * Add the checkbox option.
@@ -15,7 +15,7 @@ class stanford_sweeteners_isotope_plugin_style_isotope extends views_isotope_plu
    */
   function option_definition() {
     $options = parent::option_definition();
-    $options['render_as_checkboxes'] = array('default' => TRUE);
+    $options["filter_field"] = array("default" => '');
     return $options;
   }
 
@@ -23,13 +23,19 @@ class stanford_sweeteners_isotope_plugin_style_isotope extends views_isotope_plu
    * Render the given style.
    */
   function options_form(&$form, &$form_state) {
-    // parent::options_form($form, $form_state);
-    $form['render_as_checkboxes'] = array(
-      '#type' => 'checkbox',
-      '#title' => t('Render as checkboxes.'),
-      '#default_value' => $this->options['render_as_checkboxes'],
-     );
-    return($form);
+    parent::options_form($form, $form_state);
+
+    $field_options = array_keys($this->display->display_options['fields']);
+    $field_options = array_combine($field_options, $field_options);
+
+    $form['filter_field'] = array(
+      '#type' => 'checkboxes',
+      '#title' => t("Fields to use as Isotope filters"),
+      '#options' => $field_options,
+      '#default_value' => $this->options['filter_field'],
+    );
+
+    return $form;
   }
 
 }

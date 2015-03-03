@@ -125,7 +125,7 @@ function stanford_sweeteners_isotope_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'none';
-  $handler->display->display_options['style_plugin'] = 'isotope';
+  $handler->display->display_options['style_plugin'] = 'stanford_sweeteners_isotope';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
@@ -177,7 +177,7 @@ function stanford_sweeteners_isotope_views_default_views() {
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<span class="sweetener-thumb">[field_s_sweet_image]</span> 
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<span class="sweetener-thumb">[field_s_sweet_image]</span>
 <h3>[title]</h3>
 ';
   $handler->display->display_options['fields']['nothing']['alter']['make_link'] = TRUE;
@@ -252,7 +252,7 @@ function stanford_sweeteners_isotope_views_default_views() {
     t('<p class="summary">It\'s pretty "sweet" to be connected with Stanford! Stanford Sweeteners present the "sweetest" perks and rewards of being affiliated with Stanford, from discounts and incentives to facilities access and professional development.</p>'),
     t('Isotope Filter'),
     t('Sweetener No Title'),
-    t('<span class="sweetener-thumb">[field_s_sweet_image]</span> 
+    t('<span class="sweetener-thumb">[field_s_sweet_image]</span>
 <h3>[title]</h3>
 '),
     t('Page'),

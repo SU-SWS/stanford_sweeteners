@@ -55,6 +55,38 @@ function stanford_sweeteners_libraries_info() {
     ),
   );
 
+  $libraries['jquery.isotope'] = array(
+    'name' => 'jQuery Isotope',
+    'vendor url' => 'http://isotope.metafizzy.co/',
+    'download url' => 'http://isotope.metafizzy.co/v1/jquery.isotope.min.js',
+    'version arguments' => array(
+      'file' => 'jquery.isotope.min.js',
+      'pattern' => '/(\d+\.?\d+\.?\d+\.?)/',
+      'lines' => 2,
+    ),
+    'files' => array(
+      'js' => array(
+        'jquery.isotope.min.js',
+      ),
+    ),
+  );
+
+  $libraries['jquery.imagesloaded'] = array(
+    'name' => 'jQuery Isotope',
+    'vendor url' => 'http://imagesloaded.desandro.com/',
+    'download url' => 'https://raw.githubusercontent.com/desandro/imagesloaded/v2.1.2/jquery.imagesloaded.min.js',
+    'version arguments' => array(
+      'file' => 'jquery.imagesloaded.min.js',
+      'pattern' => '/(\d+\.?\d+\.?\d+\.?)/',
+    ),
+    'files' => array(
+      'js' => array(
+        'jquery.imagesloaded.min.js',
+      ),
+    ),
+  );
+
+
   return $libraries;
 }
 
