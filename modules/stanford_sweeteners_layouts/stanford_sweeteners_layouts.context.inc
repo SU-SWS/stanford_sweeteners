@@ -28,17 +28,17 @@ function stanford_sweeteners_layouts_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'bean-caw-sweeteners-logo-and-descript' => array(
-          'module' => 'bean',
-          'delta' => 'caw-sweeteners-logo-and-descript',
-          'region' => 'sidebar_second',
-          'weight' => '-10',
-        ),
         'views-e45453d1642ffd0c9ec65173ce88d331' => array(
           'module' => 'views',
           'delta' => 'e45453d1642ffd0c9ec65173ce88d331',
           'region' => 'sidebar_second',
           'weight' => '-9',
+        ),
+        'views-d946c006912e89db5aa2a8f902b8dc9c' => array(
+          'module' => 'views',
+          'delta' => 'd946c006912e89db5aa2a8f902b8dc9c',
+          'region' => 'sidebar_second',
+          'weight' => '-8',
         ),
       ),
     ),

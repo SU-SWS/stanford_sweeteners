@@ -82,13 +82,13 @@ function stanford_sweeteners_isotope_views_default_views() {
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['label'] = '';
   $handler->display->display_options['fields']['name']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['name']['alter']['path'] = 'sweeteners-nojs/[name]';
+  $handler->display->display_options['fields']['name']['alter']['path'] = 'benefits-rewards/sweeteners-nojs/[name]';
   $handler->display->display_options['fields']['name']['alter']['replace_spaces'] = TRUE;
   $handler->display->display_options['fields']['name']['alter']['path_case'] = 'lower';
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
-  $handler->display->display_options['block_description'] = 'Sweetener Isotope Filter';
+  $handler->display->display_options['block_description'] = 'Sweetener - NoJs - Category links';
 
   /* Display: Audience Filter Block */
   $handler = $view->new_display('block', 'Audience Filter Block', 'audience_filter');
@@ -115,6 +115,48 @@ function stanford_sweeteners_isotope_views_default_views() {
     'sweetener_audience' => 'sweetener_audience',
   );
   $handler->display->display_options['block_description'] = 'Sweetener Isotope Filter';
+
+  /* Display: No JS Menu Block - Audience */
+  $handler = $view->new_display('block', 'No JS Menu Block - Audience', 'no_js_filter_menu_audience');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Sweeteners Filter';
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'sweetener-isotope-filter no-js-menu';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Taxonomy term: Content using Audience */
+  $handler->display->display_options['relationships']['reverse_field_s_sweet_audience_node']['id'] = 'reverse_field_s_sweet_audience_node';
+  $handler->display->display_options['relationships']['reverse_field_s_sweet_audience_node']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['relationships']['reverse_field_s_sweet_audience_node']['field'] = 'reverse_field_s_sweet_audience_node';
+  $handler->display->display_options['relationships']['reverse_field_s_sweet_audience_node']['required'] = TRUE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Taxonomy term: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['name']['alter']['path'] = 'benefits-rewards/sweeteners-nojs/[name]';
+  $handler->display->display_options['fields']['name']['alter']['replace_spaces'] = TRUE;
+  $handler->display->display_options['fields']['name']['alter']['path_case'] = 'lower';
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Taxonomy vocabulary: Machine name */
+  $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
+  $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['value'] = array(
+    'sweetener_audience' => 'sweetener_audience',
+  );
+  $handler->display->display_options['block_description'] = 'Sweetener - NoJS - Audience links';
   $translatables['sweeteners_isotope_filter'] = array(
     t('Master'),
     t('Sweeteners Isotope Filter'),
@@ -129,8 +171,11 @@ function stanford_sweeteners_isotope_views_default_views() {
     t('Sweetener Isotope Filter'),
     t('No JS Menu Block'),
     t('Sweeteners Filter'),
+    t('Sweetener - NoJs - Category links'),
     t('Audience Filter Block'),
     t('field_s_sweet_audience'),
+    t('No JS Menu Block - Audience'),
+    t('Sweetener - NoJS - Audience links'),
   );
   $export['sweeteners_isotope_filter'] = $view;
 
@@ -283,12 +328,13 @@ function stanford_sweeteners_isotope_views_default_views() {
   $handler->display->display_options['arguments']['tid']['specify_validation'] = TRUE;
   $handler->display->display_options['arguments']['tid']['validate']['type'] = 'taxonomy_term';
   $handler->display->display_options['arguments']['tid']['validate_options']['vocabularies'] = array(
+    'sweetener_audience' => 'sweetener_audience',
     'sweetener_category' => 'sweetener_category',
   );
   $handler->display->display_options['arguments']['tid']['validate_options']['type'] = 'convert';
   $handler->display->display_options['arguments']['tid']['validate_options']['transform'] = TRUE;
   $handler->display->display_options['arguments']['tid']['validate']['fail'] = 'ignore';
-  $handler->display->display_options['path'] = 'sweeteners-nojs';
+  $handler->display->display_options['path'] = 'benefits-rewards/sweeteners-nojs';
   $translatables['sweeteners_isotope_page'] = array(
     t('Master'),
     t('Stanford Sweeteners'),

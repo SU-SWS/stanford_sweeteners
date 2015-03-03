@@ -1,7 +1,7 @@
 /**
  * No Javascript specific
  */
-.no-js #isotope-checkbox-options {
+.no-js .sweetener-isotope-filter {
   display: none;
   visibility: hidden;
 }
@@ -162,7 +162,8 @@ body {
  */
 
 .js .no-js-menu,
-.js #block-views-e45453d1642ffd0c9ec65173ce88d331 {
+.js #block-views-e45453d1642ffd0c9ec65173ce88d331,
+.js #block-views-d946c006912e89db5aa2a8f902b8dc9c {
   display: none;
   visibility: hidden;
 }
