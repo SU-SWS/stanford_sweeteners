@@ -94,7 +94,7 @@ function stanford_sweeteners_isotope_views_default_views() {
   $handler = $view->new_display('block', 'Audience Filter Block', 'audience_filter');
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'stanford_sweeteners_isotope_filter';
-  $handler->display->display_options['style_options']['render_label'] = 'Audience';
+  $handler->display->display_options['style_options']['render_label'] = 'Available to';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';

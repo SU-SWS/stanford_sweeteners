@@ -19,4 +19,4 @@ files[] = views/stanford_sweeteners_isotope_plugin_style_isotope.inc
 files[] = views/stanford_sweeteners_isotope_plugin_style_isotope_filter.inc
 files[] = views/stanford-sweeteners-isotope.tpl.php
 files[] = views/stanford-sweeteners-isotope-filter.tpl.php
-mtime = 1425416686
+mtime = 1425421726
