@@ -81,17 +81,31 @@ Stanford_sweeteners_isotope.addevent.clicklinks = function(filters) {
  */
 Stanford_sweeteners_isotope.event.update = function(view) {
   var options = {};
-  var filters = Stanford_sweeteners_isotope.get_active_filters(view);
+  var groups = Stanford_sweeteners_isotope.get_active_filters_grouped(view);
   var container = view.find(".isotope-container:first");
   var count = view.find(".filters input").length;
 
   // If there are no filters or all filters are selected show everything.
-  if (filters.length > 0 && filters.length < count) {
-    options.filter = filters.join("");
+  if (groups.length > 0) {
+    var filters = [];
+
+    $.each(groups, function(i, v) {
+      if (typeof v !== "undefined" && v.length > 0) {
+        filters[i] = v.join("");
+      }
+    });
+
+    if (filters.length > 0) {
+      options.filter = filters.join(", ");
+    }
   }
-  else {
+
+  // Check to see that there is something after all.
+  if (typeof options.filter == "undefined" || options.filter.length <= 0) {
     options.filter = "*";
   }
+
+  console.log(groups);
   console.log(options);
 
   container.isotope(options);
@@ -114,7 +128,6 @@ Stanford_sweeteners_isotope.event.clicked = function(view, element) {
   if (filters.length > 0 && filters.length < count) {
     options.filter += " " + filters.join("");
   }
-
   container.isotope(options);
 };
 
@@ -136,6 +149,32 @@ Stanford_sweeteners_isotope.get_active_filters = function(view) {
     return [];
   }
 
+  return filters;
+};
+
+/**
+ * [get_active_filters description]
+ * @param  {[type]} view [description]
+ * @return {[type]}      [description]
+ */
+Stanford_sweeteners_isotope.get_active_filters_grouped = function(view) {
+  var filters = [];
+  var groups = view.find(".filters");
+
+  $.each(groups, function(i, v) {
+    filters[i] = [];
+    var boxes = $(v).find("input:checked");
+    boxes.each(function(ii, vv) {
+      filters[i].push($(vv).val());
+    });
+
+    if(filters[i].length <= 0) {
+      filters.splice(i, 1);
+    }
+
+  });
+
+  filters.sort();
   return filters;
 };
 

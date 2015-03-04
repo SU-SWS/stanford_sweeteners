@@ -2,7 +2,7 @@
 // $Id:
 
 /**
- * Preprocess function to build the isotope grid
+ * Preprocess function to build the isotope grid.
  */
 function template_preprocess_stanford_sweeteners_views_isotope(&$vars) {
   template_preprocess_views_view_list($vars);
