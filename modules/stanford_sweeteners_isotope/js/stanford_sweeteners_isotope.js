@@ -244,7 +244,7 @@ Stanford_sweeteners_isotope.addevent.history_boxes = function(filters) {
     var filter_string = filters.join("/");
     filter_string = filter_string.replace(/\./g, "");
     var hash = Drupal.settings.basePath + Drupal.settings.stanford_sweeteners_isotope.urlpath + "/" + filter_string;
-    History.replaceState(null, null, hash);
+    History.replaceState(null, document.title, hash);
   });
 };
 
@@ -266,7 +266,7 @@ Stanford_sweeteners_isotope.addevent.history_links = function(filters) {
     filter_string = filter_string.replace(/\./g, "");
 
     var hash = Drupal.settings.basePath + Drupal.settings.stanford_sweeteners_isotope.urlpath + "/" + filter_string;
-    History.replaceState(null, null, hash);
+    History.replaceState(null, document.title, hash);
   });
 };
 
