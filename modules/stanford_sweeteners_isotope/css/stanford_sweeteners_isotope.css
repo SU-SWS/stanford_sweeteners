@@ -17,6 +17,8 @@
 .isotope-hidden.isotope-item {
   pointer-events: none;
   z-index: 1;
+  display: none;
+  visibility: hidden;
 }
 
 /**** Isotope CSS3 transitions ****/

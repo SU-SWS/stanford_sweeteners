@@ -269,6 +269,7 @@ function stanford_sweeteners_isotope_views_default_views() {
 ';
   $handler->display->display_options['fields']['nothing']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['nothing']['alter']['path'] = '[path]';
+  $handler->display->display_options['fields']['nothing']['alter']['alt'] = '[title]';
   $handler->display->display_options['fields']['nothing']['alter']['link_class'] = 'sweetener-link';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   /* Field: Field: Category */
@@ -351,6 +352,7 @@ function stanford_sweeteners_isotope_views_default_views() {
     t('<span class="sweetener-thumb">[field_s_sweet_image]</span>
 <h3>[title]</h3>
 '),
+    t('[title]'),
     t('Page'),
     t('No-Js'),
     t('For users without Javascript'),

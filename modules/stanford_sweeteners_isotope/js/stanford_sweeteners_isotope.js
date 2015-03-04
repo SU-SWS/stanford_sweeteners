@@ -54,6 +54,13 @@ Stanford_sweeteners_isotope.init = function(context, settings) {
 Stanford_sweeteners_isotope.addevent.checkboxes = function(filters) {
   var inputs = filters.find("input");
   inputs.change(function(e) {
+
+    // Aria checked status.
+    var chkd = $(this).attr('aria-checked');
+    if (chkd === "true") { chkd = false; }
+    else { chkd = true; }
+    $(this).attr('aria-checked', chkd);
+
     var container = $(this).parents(".view-header").parent();
     Stanford_sweeteners_isotope.event.update(container);
   });
@@ -117,7 +124,6 @@ Stanford_sweeteners_isotope.event.update = function(view) {
     options.filter = "*";
   }
 
-  console.log(options);
   container.isotope(options);
 };
 
@@ -207,6 +213,7 @@ Stanford_sweeteners_isotope.historystate_init = function(context, settings) {
     var selector = hashparams.replace(/\//g, ",.");
     selector = selector.replace(",", "");
     $(".isotope-options .filters input").filter(selector).attr("checked", true);
+    $(".isotope-options .filters input").filter(selector).attr("aria-checked", true);
     Stanford_sweeteners_isotope.event.update($('.isotope-container').parent().parent());
   }
 
