@@ -85,19 +85,31 @@ Stanford_sweeteners_isotope.event.update = function(view) {
   var container = view.find(".isotope-container:first");
   var count = view.find(".filters input").length;
 
-  // If there are no filters or all filters are selected show everything.
-  if (groups.length > 0) {
+  if (groups.length > 1) {
     var filters = [];
 
-    $.each(groups, function(i, v) {
-      if (typeof v !== "undefined" && v.length > 0) {
-        filters[i] = v.join("");
+    $.each(groups, function(key, group) {
+
+      // Ghost entries. I (l) javascript.
+      if (typeof group == "undefined") {
+        return;
       }
+
+      $.each(group, function(i, v) {
+        $.each(groups, function(ii, vv) {
+          if (ii == key || typeof vv == "undefined") {
+            return;
+          }
+
+          filters.push(v + vv.join(""));
+        });
+      });
     });
 
-    if (filters.length > 0) {
-      options.filter = filters.join(", ");
-    }
+    options.filter = filters.join(", ");
+  }
+  else if (groups.length == 1 && typeof groups[0] !== "undefined") {
+    options.filter = groups[0].join(", ");
   }
 
   // Check to see that there is something after all.
@@ -105,9 +117,7 @@ Stanford_sweeteners_isotope.event.update = function(view) {
     options.filter = "*";
   }
 
-  console.log(groups);
   console.log(options);
-
   container.isotope(options);
 };
 
@@ -174,7 +184,8 @@ Stanford_sweeteners_isotope.get_active_filters_grouped = function(view) {
 
   });
 
-  filters.sort();
+  // Reset the index.
+  filters = filters.filter(function() { return true; });
   return filters;
 };
 
