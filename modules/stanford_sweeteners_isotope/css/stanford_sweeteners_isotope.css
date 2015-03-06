@@ -1,7 +1,7 @@
 /**
  * No Javascript specific
  */
-.no-js .sweetener-isotope-filter {
+.no-js .view-header .sweetener-isotope-filter {
   display: none;
   visibility: hidden;
 }
