@@ -66,7 +66,7 @@ function stanford_sweeteners_isotope_views_default_views() {
   /* Display: No JS Menu Block */
   $handler = $view->new_display('block', 'No JS Menu Block', 'no_js_filter_menu');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Sweeteners Filter';
+  $handler->display->display_options['title'] = 'Sweeteners category';
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'sweetener-isotope-filter no-js-menu';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
@@ -119,7 +119,7 @@ function stanford_sweeteners_isotope_views_default_views() {
   /* Display: No JS Menu Block - Audience */
   $handler = $view->new_display('block', 'No JS Menu Block - Audience', 'no_js_filter_menu_audience');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Sweeteners Filter';
+  $handler->display->display_options['title'] = 'Sweeteners available to';
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'sweetener-isotope-filter no-js-menu';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
