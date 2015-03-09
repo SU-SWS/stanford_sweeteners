@@ -261,7 +261,7 @@ function stanford_sweeteners_views_default_views() {
   <h3>[title]</h3>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Field: Audience (field_s_sweet_audience) */
+  /* Contextual filter: Field: Available to (field_s_sweet_audience) */
   $handler->display->display_options['arguments']['field_s_sweet_audience_tid']['id'] = 'field_s_sweet_audience_tid';
   $handler->display->display_options['arguments']['field_s_sweet_audience_tid']['table'] = 'field_data_field_s_sweet_audience';
   $handler->display->display_options['arguments']['field_s_sweet_audience_tid']['field'] = 'field_s_sweet_audience_tid';
@@ -377,7 +377,6 @@ function stanford_sweeteners_views_default_views() {
     t('[field_s_sweet_image]
   [title]'),
     t('All'),
-    t('Page'),
     t('Manual Selection Block'),
     t('Manual Selection Block With Entity References'),
     t('<div class="sweetener-image">[field_s_sweet_image]</div>
@@ -397,7 +396,6 @@ function stanford_sweeteners_views_default_views() {
     t('See all sweeteners'),
     t('see all sweeteners'),
   );
-
   $export['sweeteners'] = $view;
 
   return $export;
