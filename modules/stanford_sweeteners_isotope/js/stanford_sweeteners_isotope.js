@@ -208,8 +208,9 @@ Stanford_sweeteners_isotope.historystate_init = function(context, settings) {
 
   // Handle the current state
   var state = History.getState();
-  if (state.hash !== (Drupal.settings.basePath + Drupal.settings.stanford_sweeteners_isotope.urlpath)) {
-    var hashparams = state.hash.replace(Drupal.settings.basePath + Drupal.settings.stanford_sweeteners_isotope.urlpath, "");
+  var clean_hash = state.hash.split("?")[0];
+  if (clean_hash !== (Drupal.settings.basePath + Drupal.settings.stanford_sweeteners_isotope.urlpath)) {
+    var hashparams = clean_hash.replace(Drupal.settings.basePath + Drupal.settings.stanford_sweeteners_isotope.urlpath, "");
     var selector = hashparams.replace(/\//g, ",.");
     selector = selector.replace(",", "");
     $(".isotope-options .filters input").filter(selector).attr("checked", true);
