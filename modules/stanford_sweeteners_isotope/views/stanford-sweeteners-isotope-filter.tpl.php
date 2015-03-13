@@ -36,7 +36,7 @@ if (!empty($options['render_label'])) {
   <div class="filters option-set clearfix" role="group">
   <?php foreach ( $rows as $id => $row ): ?>
      <?php $dataoption = stanford_sweeteners_isotope_trim($row);  ?>
-       <label for="<?php print $dataoption; ?>"> <input type="checkbox" value=".<?php print $dataoption; ?>" class="<?php print $dataoption; ?>" role="checkbox" aria-checked="false" /><?php print trim($row) ?></label>
+       <label for="<?php print $dataoption; ?>"> <input type="checkbox" value=".<?php print $dataoption; ?>" class="<?php print $dataoption; ?>" name="<?php print $dataoption; ?>" role="checkbox" aria-checked="false" /><?php print trim($row) ?></label>
   <?php endforeach; ?>
     </div>
   </div>
