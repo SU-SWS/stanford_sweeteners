@@ -91,23 +91,6 @@ function stanford_sweeteners_libraries_info() {
 }
 
 /**
- * Implements pre_render so we can attach css or libraries if needed.
- * @param  [type] &$view [description]
- * @return [type]        [description]
- */
-function stanford_sweeteners_views_pre_render(&$view) {
-  if (strpos($view->name, "sweetener") !== FALSE) {
-    $class = $view->display_handler->get_option('css_class');
-    if (strpos($class, "slick-carousel") !== FALSE) {
-      // Generate a random ID to use.
-      $id = "srand-" . md5(rand(0, 100000) + time());
-      $view->display_handler->set_option('css_class', $class . " " . $id);
-      $view->slick_id = $id;
-    }
-  }
-}
-
-/**
  * [stanford_sweeteners_load_slick_settings description]
  * @param  [type] $type [description]
  * @param  [type] $opts [description]

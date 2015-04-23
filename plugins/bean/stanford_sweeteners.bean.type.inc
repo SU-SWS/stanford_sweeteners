@@ -50,6 +50,11 @@ class StanfordSweetenerBean extends BeanPlugin {
     // Branding options.
     $this->place_attachments($bean, $content, $view_mode, $langcode);
 
+    // Generate a css class ID to use and add it to the view.
+    $class = $view->display_handler->get_option('css_class');
+    $css_id = "slickblock-" . $bean->identifier();
+    $view->display_handler->set_option('css_class', $class . " " . $css_id);
+
     // Generate the output.
     $carousel = $view->preview();
 
@@ -61,7 +66,7 @@ class StanfordSweetenerBean extends BeanPlugin {
     $slick_theme = $this->get_slick_display_options($slick_option);
 
     // Slick Id only available after ->preview() is called.
-    stanford_sweeteners_load_slick_settings($view->slick_id, $slick_theme, $opts);
+    stanford_sweeteners_load_slick_settings($css_id, $slick_theme, $opts);
 
     // Set the content on the render array and be happy.
     $content['carousel']['#markup'] = $carousel;
