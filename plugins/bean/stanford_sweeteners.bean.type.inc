@@ -217,14 +217,15 @@ class StanfordSweetenerBean extends BeanPlugin {
     // If there are a list of entity relationships then we need to add them
     // as arguments to the view.
     if (!empty($bean->field_s_sweet_audience[LANGUAGE_NONE])) {
-      $args = array("");
-      foreach ($bean->field_s_sweet_audience[LANGUAGE_NONE] as $index => $value_array) {
-        $args[0] .= "+" . $value_array['tid'];
+      $bean_filters = array();
+      foreach ($bean->field_s_sweet_audience[LANGUAGE_NONE] as $index => $values) {
+        $bean_filters[] = $values['tid'];
       }
-      $args[0] = ltrim($args[0], "+");
-      $view->set_arguments($args);
+      $filters = $view->display_handler->get_option('filters');
+      if (isset($filters['field_s_sweet_audience_tid']['value'])) {
+        $filters['field_s_sweet_audience_tid']['value'] = $bean_filters;
+        $view->display_handler->override_option('filters', $filters);
+      }
     }
-
   }
-
 }

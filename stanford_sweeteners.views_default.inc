@@ -323,15 +323,29 @@ function stanford_sweeteners_views_default_views() {
   $handler->display->display_options['fields']['nothing']['alter']['link_class'] = 'sweetener-link';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Field: Available to (field_s_sweet_audience) */
-  $handler->display->display_options['arguments']['field_s_sweet_audience_tid']['id'] = 'field_s_sweet_audience_tid';
-  $handler->display->display_options['arguments']['field_s_sweet_audience_tid']['table'] = 'field_data_field_s_sweet_audience';
-  $handler->display->display_options['arguments']['field_s_sweet_audience_tid']['field'] = 'field_s_sweet_audience_tid';
-  $handler->display->display_options['arguments']['field_s_sweet_audience_tid']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['field_s_sweet_audience_tid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['field_s_sweet_audience_tid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['field_s_sweet_audience_tid']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['arguments']['field_s_sweet_audience_tid']['break_phrase'] = TRUE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'stanford_sweetener' => 'stanford_sweetener',
+  );
+  /* Filter criterion: Field: Available to (field_s_sweet_audience) */
+  $handler->display->display_options['filters']['field_s_sweet_audience_tid']['id'] = 'field_s_sweet_audience_tid';
+  $handler->display->display_options['filters']['field_s_sweet_audience_tid']['table'] = 'field_data_field_s_sweet_audience';
+  $handler->display->display_options['filters']['field_s_sweet_audience_tid']['field'] = 'field_s_sweet_audience_tid';
+  $handler->display->display_options['filters']['field_s_sweet_audience_tid']['value'] = '';
+  $handler->display->display_options['filters']['field_s_sweet_audience_tid']['reduce_duplicates'] = TRUE;
+  $handler->display->display_options['filters']['field_s_sweet_audience_tid']['vocabulary'] = 'sweetener_audience';
   $handler->display->display_options['block_description'] = 'Sweeteners Carousel By Audience';
 
   /* Display: Branding Block - Attachment */
