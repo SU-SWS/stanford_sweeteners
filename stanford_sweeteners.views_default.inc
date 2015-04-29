@@ -180,10 +180,6 @@ function stanford_sweeteners_views_default_views() {
   $handler->display->display_options['fields']['nothing']['alter']['link_class'] = 'sweetener-link';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Content: Title */
-  $handler->display->display_options['sorts']['title']['id'] = 'title';
-  $handler->display->display_options['sorts']['title']['table'] = 'node';
-  $handler->display->display_options['sorts']['title']['field'] = 'title';
   /* Sort criterion: Global: Random */
   $handler->display->display_options['sorts']['random']['id'] = 'random';
   $handler->display->display_options['sorts']['random']['table'] = 'views';
@@ -327,7 +323,7 @@ function stanford_sweeteners_views_default_views() {
   $handler->display->display_options['fields']['nothing']['alter']['link_class'] = 'sweetener-link';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Field: Audience (field_s_sweet_audience) */
+  /* Contextual filter: Field: Available to (field_s_sweet_audience) */
   $handler->display->display_options['arguments']['field_s_sweet_audience_tid']['id'] = 'field_s_sweet_audience_tid';
   $handler->display->display_options['arguments']['field_s_sweet_audience_tid']['table'] = 'field_data_field_s_sweet_audience';
   $handler->display->display_options['arguments']['field_s_sweet_audience_tid']['field'] = 'field_s_sweet_audience_tid';
