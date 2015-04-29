@@ -26,7 +26,11 @@ function stanford_sweeteners_views_default_views() {
   $handler->display->display_options['css_class'] = 'sweetener-carousel slick-carousel';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['cache']['type'] = 'time';
+  $handler->display->display_options['cache']['results_lifespan'] = '3600';
+  $handler->display->display_options['cache']['results_lifespan_custom'] = '0';
+  $handler->display->display_options['cache']['output_lifespan'] = '3600';
+  $handler->display->display_options['cache']['output_lifespan_custom'] = '0';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
@@ -40,7 +44,7 @@ function stanford_sweeteners_views_default_views() {
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '[field_s_sweet_image]
-    [title]';
+  [title]';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   /* Sort criterion: Global: Random */
   $handler->display->display_options['sorts']['random']['id'] = 'random';
@@ -115,7 +119,7 @@ function stanford_sweeteners_views_default_views() {
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="sweetener-thumb">[field_s_sweet_image]</div>
-    <h3>[title]</h3>';
+  <h3>[title]</h3>';
   $handler->display->display_options['fields']['nothing']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['nothing']['alter']['path'] = 'node/[nid]';
   $handler->display->display_options['fields']['nothing']['alter']['link_class'] = 'sweetener-link';
@@ -125,6 +129,8 @@ function stanford_sweeteners_views_default_views() {
   /* Display: Category Selection Block */
   $handler = $view->new_display('block', 'Category Selection Block', 'sweetener_carousel_category');
   $handler->display->display_options['display_description'] = 'Category Selection Block';
+  $handler->display->display_options['defaults']['query'] = FALSE;
+  $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
@@ -133,6 +139,7 @@ function stanford_sweeteners_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
@@ -167,21 +174,44 @@ function stanford_sweeteners_views_default_views() {
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="sweetener-thumb">[field_s_sweet_image]</div>
-    <h3>[title]</h3>';
+  <h3>[title]</h3>';
   $handler->display->display_options['fields']['nothing']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['nothing']['alter']['path'] = 'node/[nid]';
   $handler->display->display_options['fields']['nothing']['alter']['link_class'] = 'sweetener-link';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Content: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  /* Sort criterion: Global: Random */
+  $handler->display->display_options['sorts']['random']['id'] = 'random';
+  $handler->display->display_options['sorts']['random']['table'] = 'views';
+  $handler->display->display_options['sorts']['random']['field'] = 'random';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Field: Category (field_s_sweet_category) */
-  $handler->display->display_options['arguments']['field_s_sweet_category_tid']['id'] = 'field_s_sweet_category_tid';
-  $handler->display->display_options['arguments']['field_s_sweet_category_tid']['table'] = 'field_data_field_s_sweet_category';
-  $handler->display->display_options['arguments']['field_s_sweet_category_tid']['field'] = 'field_s_sweet_category_tid';
-  $handler->display->display_options['arguments']['field_s_sweet_category_tid']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['field_s_sweet_category_tid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['field_s_sweet_category_tid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['field_s_sweet_category_tid']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['arguments']['field_s_sweet_category_tid']['break_phrase'] = TRUE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'stanford_sweetener' => 'stanford_sweetener',
+  );
+  /* Filter criterion: Field: Category (field_s_sweet_category) */
+  $handler->display->display_options['filters']['field_s_sweet_category_tid']['id'] = 'field_s_sweet_category_tid';
+  $handler->display->display_options['filters']['field_s_sweet_category_tid']['table'] = 'field_data_field_s_sweet_category';
+  $handler->display->display_options['filters']['field_s_sweet_category_tid']['field'] = 'field_s_sweet_category_tid';
+  $handler->display->display_options['filters']['field_s_sweet_category_tid']['value'] = '';
+  $handler->display->display_options['filters']['field_s_sweet_category_tid']['reduce_duplicates'] = TRUE;
+  $handler->display->display_options['filters']['field_s_sweet_category_tid']['vocabulary'] = 'sweetener_category';
   $handler->display->display_options['block_description'] = 'Sweeteners Carousel By Type';
 
   /* Display: Subsite Selection Block */
@@ -229,7 +259,7 @@ function stanford_sweeteners_views_default_views() {
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="sweetener-thumb">[field_s_sweet_image]</div>
-    <h3>[title]</h3>';
+  <h3>[title]</h3>';
   $handler->display->display_options['fields']['nothing']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['nothing']['alter']['path'] = 'node/[nid]';
   $handler->display->display_options['fields']['nothing']['alter']['link_class'] = 'sweetener-link';
@@ -291,7 +321,7 @@ function stanford_sweeteners_views_default_views() {
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="sweetener-thumb">[field_s_sweet_image]</div>
-    <h3>[title]</h3>';
+  <h3>[title]</h3>';
   $handler->display->display_options['fields']['nothing']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['nothing']['alter']['path'] = 'node/[nid]';
   $handler->display->display_options['fields']['nothing']['alter']['link_class'] = 'sweetener-link';
@@ -327,7 +357,7 @@ function stanford_sweeteners_views_default_views() {
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<h3 class="sweeteners-branding-logo">Stanford Sweeteners</h3>
-    <p>Learn why it\'s pretty "sweet" to be connected with Stanford!</p>';
+  <p>Learn why it\'s pretty "sweet" to be connected with Stanford!</p>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing_1']['id'] = 'nothing_1';
@@ -411,13 +441,13 @@ function stanford_sweeteners_views_default_views() {
     t('next ›'),
     t('last »'),
     t('[field_s_sweet_image]
-    [title]'),
+  [title]'),
     t('All'),
     t('Manual Selection Block'),
     t('Manual Selection Block With Entity References'),
     t('Nid'),
     t('<div class="sweetener-thumb">[field_s_sweet_image]</div>
-    <h3>[title]</h3>'),
+  <h3>[title]</h3>'),
     t('Category Selection Block'),
     t('Sweeteners Carousel By Type'),
     t('Subsite Selection Block'),
@@ -425,7 +455,7 @@ function stanford_sweeteners_views_default_views() {
     t('Sweeteners Carousel By Audience'),
     t('Branding Block - Attachment'),
     t('<h3 class="sweeteners-branding-logo">Stanford Sweeteners</h3>
-    <p>Learn why it\'s pretty "sweet" to be connected with Stanford!</p>'),
+  <p>Learn why it\'s pretty "sweet" to be connected with Stanford!</p>'),
     t('View sweeteners'),
     t('Footer Link - Attachment'),
     t('Attachment to see all sweeteners link'),

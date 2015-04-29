@@ -64,4 +64,3 @@ features[variable][] = node_submitted_stanford_sweetener
 features[variable][] = pathauto_node_stanford_sweetener_pattern
 features[views_view][] = sweeteners
 files[] = plugins/bean/stanford_sweeteners.bean.type.inc
-mtime = 1424906922
