@@ -52,6 +52,19 @@ Stanford_sweeteners_isotope.init = function(context, settings) {
  * @return {[type]}         [description]
  */
 Stanford_sweeteners_isotope.addevent.checkboxes = function(filters) {
+
+  // Make labels have toggle css class
+  var labels = filters.find("label");
+  labels.click(function(e) {
+    if ($(this).find("input:checked").length) {
+      $(this).addClass("checked");
+    }
+    else {
+      $(this).removeClass("checked");
+    }
+  });
+
+  // Add click handles to the checkboxes
   var inputs = filters.find("input");
   inputs.change(function(e) {
 
@@ -215,6 +228,7 @@ Stanford_sweeteners_isotope.historystate_init = function(context, settings) {
     selector = selector.replace(",", "");
     $(".isotope-options .filters input").filter(selector).attr("checked", true);
     $(".isotope-options .filters input").filter(selector).attr("aria-checked", true);
+    $(".isotope-options .filters input").filter(selector).parents("label:first").addClass("checked");
     Stanford_sweeteners_isotope.event.update($('.isotope-container').parent().parent());
   }
 
