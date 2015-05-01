@@ -228,7 +228,7 @@ Stanford_sweeteners_isotope.historystate_init = function(context, settings) {
     selector = selector.replace(",", "");
     $(".isotope-options .filters input").filter(selector).attr("checked", true);
     $(".isotope-options .filters input").filter(selector).attr("aria-checked", true);
-    $(".isotope-options .filters input").filter(selector).parents("label:first").addClass("checked");
+    $(".isotope-options .filters input").filter(selector).parent().addClass("checked");
     Stanford_sweeteners_isotope.event.update($('.isotope-container').parent().parent());
   }
 
