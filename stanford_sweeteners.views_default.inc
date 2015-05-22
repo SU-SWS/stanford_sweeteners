@@ -79,6 +79,7 @@ function stanford_sweeteners_views_default_views() {
   $handler->display->display_options['display_description'] = 'Manual Selection Block With Entity References';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
@@ -132,7 +133,9 @@ function stanford_sweeteners_views_default_views() {
   $handler->display->display_options['defaults']['query'] = FALSE;
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['defaults']['pager'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '15';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
@@ -214,7 +217,9 @@ function stanford_sweeteners_views_default_views() {
   $handler = $view->new_display('block', 'Subsite Selection Block', 'sweetener_carousel_subsite');
   $handler->display->display_options['display_description'] = 'Subsite Selection Block';
   $handler->display->display_options['defaults']['pager'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '15';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
@@ -276,7 +281,9 @@ function stanford_sweeteners_views_default_views() {
   $handler = $view->new_display('block', 'Audience Selection Block', 'sweetener_carousel_audience');
   $handler->display->display_options['display_description'] = 'Audience Selection Block';
   $handler->display->display_options['defaults']['pager'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '15';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
@@ -339,7 +346,7 @@ function stanford_sweeteners_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'stanford_sweetener' => 'stanford_sweetener',
   );
-  /* Filter criterion: Field: Available to (field_s_sweet_audience) */
+  /* Filter criterion: Field: Audience (field_s_sweet_audience) */
   $handler->display->display_options['filters']['field_s_sweet_audience_tid']['id'] = 'field_s_sweet_audience_tid';
   $handler->display->display_options['filters']['field_s_sweet_audience_tid']['table'] = 'field_data_field_s_sweet_audience';
   $handler->display->display_options['filters']['field_s_sweet_audience_tid']['field'] = 'field_s_sweet_audience_tid';
