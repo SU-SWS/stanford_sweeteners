@@ -70,6 +70,13 @@ class StanfordSweetenerBean extends BeanPlugin {
 
     // Set the content on the render array and be happy.
     $content['carousel']['#markup'] = $carousel;
+
+    // Move the controls to somewhere I want them.
+    $controls = "";
+    $controls .= "<div class=\"sweetener-arrows sweetener-dots\"></div>";
+
+    $content['controls']['#markup'] = $controls;
+
     return $content;
   }
 

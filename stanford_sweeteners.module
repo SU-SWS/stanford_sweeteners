@@ -143,8 +143,8 @@ function stanford_sweeteners_get_slick_settings($type = "default", $opts = array
       array(
         "breakpoint" => 1199,
         "settings" => array(
-          "slidesToShow" => 5,
-          "slidesToScroll" => 5,
+          "slidesToShow" => 4,
+          "slidesToScroll" => 4,
           "infinite" => TRUE,
           "dots" => TRUE,
         ),
@@ -153,40 +153,40 @@ function stanford_sweeteners_get_slick_settings($type = "default", $opts = array
       array(
         "breakpoint" => 979,
         "settings" => array(
-          "slidesToShow" => 4,
-          "slidesToScroll" => 4,
-          "infinite" => TRUE,
-          "dots" => TRUE,
-        ),
-      ),
-      // 759
-      array(
-        "breakpoint" => 759,
-        "settings" => array(
           "slidesToShow" => 3,
           "slidesToScroll" => 3,
           "infinite" => TRUE,
           "dots" => TRUE,
         ),
       ),
-      // 541
+      // 759
       array(
-        "breakpoint" => 541,
-        "settings" => array(
-          "slidesToShow" => 2,
-          "slidesToScroll" => 2,
-          "infinite" => TRUE,
-          "dots" => TRUE,
-        ),
-      ),
-      // 410
-      array(
-        "breakpoint" => 410,
+        "breakpoint" => 767,
         "settings" => array(
           "slidesToShow" => 1,
           "slidesToScroll" => 1,
           "infinite" => TRUE,
-          "dots" => TRUE,
+          "dots" => FALSE,
+        ),
+      ),
+      // 480
+      array(
+        "breakpoint" => 480,
+        "settings" => array(
+          "slidesToShow" => 2,
+          "slidesToScroll" => 2,
+          "infinite" => TRUE,
+          "dots" => FALSE,
+        ),
+      ),
+      // 330
+      array(
+        "breakpoint" => 330,
+        "settings" => array(
+          "slidesToShow" => 1,
+          "slidesToScroll" => 1,
+          "infinite" => TRUE,
+          "dots" => FALSE,
         ),
       ),
     ),
@@ -203,10 +203,13 @@ function stanford_sweeteners_get_slick_settings($type = "default", $opts = array
     "slidesToShow" => 5,
     "slidesToScroll" => 5,
     "dots" => TRUE,
+    "appendArrows" => ".sweetener-arrows",
+    "appendDots" => ".sweetener-dots",
+    "reInit" => "Drupal.behaviors.stanford_sweeteners.move_buttons",
     "responsive" => array(
-      // 979
+      // 1199
       array(
-        "breakpoint" => 979,
+        "breakpoint" => 1199,
         "settings" => array(
           "slidesToShow" => 4,
           "slidesToScroll" => 4,
@@ -214,9 +217,9 @@ function stanford_sweeteners_get_slick_settings($type = "default", $opts = array
           "dots" => TRUE,
         ),
       ),
-      // 759
+      // 979
       array(
-        "breakpoint" => 759,
+        "breakpoint" => 979,
         "settings" => array(
           "slidesToShow" => 3,
           "slidesToScroll" => 3,
@@ -224,24 +227,34 @@ function stanford_sweeteners_get_slick_settings($type = "default", $opts = array
           "dots" => TRUE,
         ),
       ),
-      // 541
+      // 759
       array(
-        "breakpoint" => 541,
-        "settings" => array(
-          "slidesToShow" => 2,
-          "slidesToScroll" => 2,
-          "infinite" => TRUE,
-          "dots" => TRUE,
-        ),
-      ),
-      // 410
-      array(
-        "breakpoint" => 410,
+        "breakpoint" => 767,
         "settings" => array(
           "slidesToShow" => 1,
           "slidesToScroll" => 1,
           "infinite" => TRUE,
-          "dots" => TRUE,
+          "dots" => FALSE,
+        ),
+      ),
+      // 480
+      array(
+        "breakpoint" => 480,
+        "settings" => array(
+          "slidesToShow" => 2,
+          "slidesToScroll" => 2,
+          "infinite" => TRUE,
+          "dots" => FALSE,
+        ),
+      ),
+      // 330
+      array(
+        "breakpoint" => 330,
+        "settings" => array(
+          "slidesToShow" => 1,
+          "slidesToScroll" => 1,
+          "infinite" => TRUE,
+          "dots" => FALSE,
         ),
       ),
     ),
@@ -251,7 +264,7 @@ function stanford_sweeteners_get_slick_settings($type = "default", $opts = array
   // -----------------------------------------------------------------
   $settings["4 items"] = $settings["5 items"];
   $settings["4 items"]["slidesToShow"] = 4;
-  $settings["4 items"]["slidesToScroll"] = 5;
+  $settings["4 items"]["slidesToScroll"] = 4;
 
   // 3 Items
   // -----------------------------------------------------------------
@@ -265,24 +278,44 @@ function stanford_sweeteners_get_slick_settings($type = "default", $opts = array
     "slidesToScroll" => 3,
     "dots" => TRUE,
     "responsive" => array(
-      // 541
+      // 979
       array(
-        "breakpoint" => 541,
+        "breakpoint" => 979,
         "settings" => array(
-          "slidesToShow" => 2,
-          "slidesToScroll" => 2,
+          "slidesToShow" => 3,
+          "slidesToScroll" => 3,
           "infinite" => TRUE,
           "dots" => TRUE,
         ),
       ),
-      // 410
+      // 759
       array(
-        "breakpoint" => 410,
+        "breakpoint" => 767,
         "settings" => array(
           "slidesToShow" => 1,
           "slidesToScroll" => 1,
           "infinite" => TRUE,
-          "dots" => TRUE,
+          "dots" => FALSE,
+        ),
+      ),
+      // 480
+      array(
+        "breakpoint" => 480,
+        "settings" => array(
+          "slidesToShow" => 2,
+          "slidesToScroll" => 2,
+          "infinite" => TRUE,
+          "dots" => FALSE,
+        ),
+      ),
+      // 330
+      array(
+        "breakpoint" => 330,
+        "settings" => array(
+          "slidesToShow" => 1,
+          "slidesToScroll" => 1,
+          "infinite" => TRUE,
+          "dots" => FALSE,
         ),
       ),
     ),
@@ -300,14 +333,34 @@ function stanford_sweeteners_get_slick_settings($type = "default", $opts = array
     "slidesToScroll" => 2,
     "dots" => TRUE,
     "responsive" => array(
-      // 410
+      // 759
       array(
-        "breakpoint" => 410,
+        "breakpoint" => 767,
         "settings" => array(
           "slidesToShow" => 1,
           "slidesToScroll" => 1,
           "infinite" => TRUE,
-          "dots" => TRUE,
+          "dots" => FALSE,
+        ),
+      ),
+      // 480
+      array(
+        "breakpoint" => 480,
+        "settings" => array(
+          "slidesToShow" => 2,
+          "slidesToScroll" => 2,
+          "infinite" => TRUE,
+          "dots" => FALSE,
+        ),
+      ),
+      // 330
+      array(
+        "breakpoint" => 330,
+        "settings" => array(
+          "slidesToShow" => 1,
+          "slidesToScroll" => 1,
+          "infinite" => TRUE,
+          "dots" => FALSE,
         ),
       ),
     ),
