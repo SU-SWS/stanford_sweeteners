@@ -24,7 +24,9 @@
       });
 
     },
-
+    /**
+     * @todo: Make this work with more than one item on a page.
+     */
     move_buttons: function () {
       var dots = $(".slick-dots");
       var next = $(".sweetener-arrows").find(".slick-next");
