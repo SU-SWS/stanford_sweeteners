@@ -23,6 +23,9 @@
         }
       });
 
+      // Remove tab index on cloned items.
+      $(".slick-cloned a").attr("tabindex", -1);
+
     },
     /**
      * @todo: Make this work with more than one item on a page.

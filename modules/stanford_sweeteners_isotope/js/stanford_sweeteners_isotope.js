@@ -66,8 +66,8 @@ Stanford_sweeteners_isotope.addevent.checkboxes = function(filters) {
 
   // Add click handles to the checkboxes
   var inputs = filters.find("input");
-  inputs.change(function(e) {
 
+  inputs.change(function(e) {
     // Aria checked status.
     var chkd = $(this).attr('aria-checked');
     if (chkd === "true") { chkd = false; }
@@ -77,6 +77,15 @@ Stanford_sweeteners_isotope.addevent.checkboxes = function(filters) {
     var container = $(this).parents(".view-header").parent();
     Stanford_sweeteners_isotope.event.update(container);
   });
+
+  // Add focus to label.
+  inputs.focus(function(e) {
+    $(this).parents("label").addClass("hover");
+  });
+  inputs.blur(function(e) {
+    $(this).parents("label").removeClass("hover");
+  });
+
 };
 
 /**
