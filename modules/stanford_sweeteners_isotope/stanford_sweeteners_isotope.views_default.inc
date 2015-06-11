@@ -217,14 +217,6 @@ function stanford_sweeteners_isotope_views_default_views() {
     'nothing' => 0,
   );
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Header: Global: Text area */
-  $handler->display->display_options['header']['area']['id'] = 'area';
-  $handler->display->display_options['header']['area']['table'] = 'views';
-  $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['label'] = 'Introduction text';
-  $handler->display->display_options['header']['area']['empty'] = TRUE;
-  $handler->display->display_options['header']['area']['content'] = '<p class="summary">It\'s pretty "sweet" to be connected with Stanford! Stanford Sweeteners present the "sweetest" perks and rewards of being affiliated with Stanford, from discounts and incentives to facilities access and professional development.</p>';
-  $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Header: Global: View area */
   $handler->display->display_options['header']['view']['id'] = 'view';
   $handler->display->display_options['header']['view']['table'] = 'views';
@@ -353,8 +345,6 @@ function stanford_sweeteners_isotope_views_default_views() {
     t('Sort by'),
     t('Asc'),
     t('Desc'),
-    t('Introduction text'),
-    t('<p class="summary">It\'s pretty "sweet" to be connected with Stanford! Stanford Sweeteners present the "sweetest" perks and rewards of being affiliated with Stanford, from discounts and incentives to facilities access and professional development.</p>'),
     t('Isotope Filter'),
     t('Sweetener No Title'),
     t('<span class="sweetener-thumb">[field_s_sweet_image]</span>
