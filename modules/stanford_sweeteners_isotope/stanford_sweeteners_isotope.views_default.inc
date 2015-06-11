@@ -26,7 +26,11 @@ function stanford_sweeteners_isotope_views_default_views() {
   $handler->display->display_options['css_class'] = 'sweetener-isotope-filter';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['cache']['type'] = 'time';
+  $handler->display->display_options['cache']['results_lifespan'] = '3600';
+  $handler->display->display_options['cache']['results_lifespan_custom'] = '0';
+  $handler->display->display_options['cache']['output_lifespan'] = '3600';
+  $handler->display->display_options['cache']['output_lifespan_custom'] = '0';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
@@ -100,7 +104,7 @@ function stanford_sweeteners_isotope_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relationship: Taxonomy term: Content using Audience */
+  /* Relationship: Taxonomy term: Content using Available to */
   $handler->display->display_options['relationships']['reverse_field_s_sweet_audience_node']['id'] = 'reverse_field_s_sweet_audience_node';
   $handler->display->display_options['relationships']['reverse_field_s_sweet_audience_node']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['relationships']['reverse_field_s_sweet_audience_node']['field'] = 'reverse_field_s_sweet_audience_node';
@@ -129,7 +133,7 @@ function stanford_sweeteners_isotope_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relationship: Taxonomy term: Content using Audience */
+  /* Relationship: Taxonomy term: Content using Available to */
   $handler->display->display_options['relationships']['reverse_field_s_sweet_audience_node']['id'] = 'reverse_field_s_sweet_audience_node';
   $handler->display->display_options['relationships']['reverse_field_s_sweet_audience_node']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['relationships']['reverse_field_s_sweet_audience_node']['field'] = 'reverse_field_s_sweet_audience_node';
@@ -170,11 +174,12 @@ function stanford_sweeteners_isotope_views_default_views() {
     t('Category Filter Block'),
     t('Sweetener Isotope Filter'),
     t('No JS Menu Block'),
-    t('Sweeteners Filter'),
+    t('Sweeteners category'),
     t('Sweetener - NoJs - Category links'),
     t('Audience Filter Block'),
     t('field_s_sweet_audience'),
     t('No JS Menu Block - Audience'),
+    t('Sweeteners available to'),
     t('Sweetener - NoJS - Audience links'),
   );
   $export['sweeteners_isotope_filter'] = $view;
@@ -195,7 +200,11 @@ function stanford_sweeteners_isotope_views_default_views() {
   $handler->display->display_options['css_class'] = 'sweetener-isotope-page';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['cache']['type'] = 'time';
+  $handler->display->display_options['cache']['results_lifespan'] = '3600';
+  $handler->display->display_options['cache']['results_lifespan_custom'] = '0';
+  $handler->display->display_options['cache']['output_lifespan'] = '3600';
+  $handler->display->display_options['cache']['output_lifespan_custom'] = '0';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'none';
@@ -209,14 +218,6 @@ function stanford_sweeteners_isotope_views_default_views() {
     'nothing' => 0,
   );
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Header: Global: Text area */
-  $handler->display->display_options['header']['area']['id'] = 'area';
-  $handler->display->display_options['header']['area']['table'] = 'views';
-  $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['label'] = 'Introduction text';
-  $handler->display->display_options['header']['area']['empty'] = TRUE;
-  $handler->display->display_options['header']['area']['content'] = '<p class="summary">It\'s pretty "sweet" to be connected with Stanford! Stanford Sweeteners present the "sweetest" perks and rewards of being affiliated with Stanford, from discounts and incentives to facilities access and professional development.</p>';
-  $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Header: Global: View area */
   $handler->display->display_options['header']['view']['id'] = 'view';
   $handler->display->display_options['header']['view']['table'] = 'views';
@@ -282,7 +283,7 @@ function stanford_sweeteners_isotope_views_default_views() {
   $handler->display->display_options['fields']['field_s_sweet_category']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_s_sweet_category']['type'] = 'taxonomy_term_reference_plain';
   $handler->display->display_options['fields']['field_s_sweet_category']['delta_offset'] = '0';
-  /* Field: Field: Audience */
+  /* Field: Field: Available to */
   $handler->display->display_options['fields']['field_s_sweet_audience']['id'] = 'field_s_sweet_audience';
   $handler->display->display_options['fields']['field_s_sweet_audience']['table'] = 'field_data_field_s_sweet_audience';
   $handler->display->display_options['fields']['field_s_sweet_audience']['field'] = 'field_s_sweet_audience';
@@ -345,8 +346,6 @@ function stanford_sweeteners_isotope_views_default_views() {
     t('Sort by'),
     t('Asc'),
     t('Desc'),
-    t('Introduction text'),
-    t('<p class="summary">It\'s pretty "sweet" to be connected with Stanford! Stanford Sweeteners present the "sweetest" perks and rewards of being affiliated with Stanford, from discounts and incentives to facilities access and professional development.</p>'),
     t('Isotope Filter'),
     t('Sweetener No Title'),
     t('<span class="sweetener-thumb">[field_s_sweet_image]</span>
