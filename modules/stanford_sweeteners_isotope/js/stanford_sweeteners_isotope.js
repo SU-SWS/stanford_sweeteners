@@ -213,7 +213,7 @@ Stanford_sweeteners_isotope.get_active_filters_grouped = function(view) {
   });
 
   // Reset the index.
-  filters = filters.filter(function() { return true; });
+  filters = $(filters).filter(function() { return true; });
   return filters;
 };
 
