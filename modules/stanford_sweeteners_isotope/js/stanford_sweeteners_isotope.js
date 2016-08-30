@@ -121,13 +121,13 @@ Stanford_sweeteners_isotope.event.update = function(view) {
 
       // Ghost entries. I (l) javascript.
       if (typeof group == "undefined") {
-        return;
+        return true;
       }
 
       $.each(group, function(i, v) {
         $.each(groups, function(ii, vv) {
           if (ii == key || typeof vv == "undefined") {
-            return;
+            return true;
           }
 
           filters.push(v + vv.join(""));
