@@ -104,41 +104,60 @@ Stanford_sweeteners_isotope.addevent.clicklinks = function(filters) {
 
 
 /**
- * [checkboxes description]
- * @param  {[type]} container [description]
- * @return {[type]}           [description]
+ * Update the cards with the appropriate filters.
+ *
+ * This version has an and/or combination with the two groups of available
+ * Filters.
  */
 Stanford_sweeteners_isotope.event.update = function(view) {
+  // Storage variable to pass in to the isotope method.
   var options = {};
+  // Returns an array of active filters by each group of them so we can combine
+  // them in to and/or options.
   var groups = Stanford_sweeteners_isotope.get_active_filters_grouped(view);
   var container = view.find(".isotope-container:first");
-  var count = view.find(".filters input").length;
 
-  if (groups.length > 1) {
-    var filters = [];
+  // In order to create the and/or for each group we need to combine their css
+  // classes in a way where this behaves as we wish. For example we want to list
+  // all of the cards that are:
+  // (discounts or transportation) and (staff or faculty.).
+  groups = Stanford_sweeteners_isotope.cleanArray(groups);
 
-    $.each(groups, function(key, group) {
+  // If no options selected get everything.
+  if (groups.length == 0) {
+    options.filter = "*";
+  }
 
-      // Ghost entries. I (l) javascript.
-      if (typeof group == "undefined") {
-        return true;
-      }
-
-      $.each(group, function(i, v) {
-        $.each(groups, function(ii, vv) {
-          if (ii == key || typeof vv == "undefined") {
-            return true;
-          }
-
-          filters.push(v + vv.join(""));
-        });
-      });
-    });
-
+  // Only "or" options from one group.
+  if (groups.length == 1) {
+    var filters = groups.pop();
     options.filter = filters.join(", ");
   }
-  else if (groups.length == 1 && typeof groups[0] !== "undefined") {
-    options.filter = groups[0].join(", ");
+
+  // If we have an/or building to do with more than one group of filters active.
+  // To do this we combine the selectors for each group. For each group the
+  // amount of combinations grow exponentially. We could have a lot.
+  if (groups.length > 1) {
+    filters = groups.pop();
+
+    // For each group of selected filters add to the existing options (ands).
+    while (group = groups.pop()) {
+      var tmp_array = [];
+
+      // Loop through what we have and what we want to add.
+      for (i = 0; i < filters.length; i++) {
+        for (ii = 0; ii < group.length; ii++) {
+          // Create the new "And" combination.
+          tmp_array.push(filters[i] + group[ii]);
+        }
+      }
+
+      // Assign back so on next pass we keep changes.
+      filters = tmp_array;
+    }
+
+    // Combine all the ands with "," to create and/ors.
+    options.filter = filters.join(", ");
   }
 
   // Check to see that there is something after all.
@@ -148,6 +167,21 @@ Stanford_sweeteners_isotope.event.update = function(view) {
 
   container.isotope(options);
 };
+
+/**
+ * Clear out values we dont want.
+ *
+ * Removes falsy items like undefined/0/false.
+ */
+Stanford_sweeteners_isotope.cleanArray = function(actual) {
+  var newArray = new Array();
+  for (var i = 0; i < actual.length; i++) {
+    if (actual[i]) {
+      newArray.push(actual[i]);
+    }
+  }
+  return newArray;
+}
 
 /**
  * [clicked description]
@@ -206,7 +240,7 @@ Stanford_sweeteners_isotope.get_active_filters_grouped = function(view) {
       filters[i].push($(vv).val());
     });
 
-    if(filters[i].length <= 0) {
+    if (filters[i].length <= 0) {
       filters.splice(i, 1);
     }
 
@@ -293,4 +327,3 @@ Stanford_sweeteners_isotope.addevent.history_links = function(filters) {
     History.replaceState(null, document.title, hash);
   });
 };
-
